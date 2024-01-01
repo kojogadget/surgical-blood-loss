@@ -16,3 +16,5 @@ jobs:
                   repoToken: '${{ secrets.GITHUB_TOKEN }}'
                   firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SURGICAL_BLOODLOSS }}'
                   projectId: surgical-bloodloss
+              env:
+                  FIREBASE_CLI_EXPERIMENTS: webframeworks
