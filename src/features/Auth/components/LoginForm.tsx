@@ -1,9 +1,9 @@
-import Image from 'next/image'
+// import Image from 'next/image'
 import React, { useState } from 'react'
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase'
 import { useRouter } from 'next/navigation'
-import logo from '@/assets/logo.png'
+// import logo from '@/assets/logo.svg'
 
 export default function LoginForm() {
     const [email, setEmail] = useState<string>('')
@@ -28,13 +28,13 @@ export default function LoginForm() {
     return (
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                <Image
+                {/*<Image
                     className="mx-auto h-auto w-auto"
                     width={40}
                     height={40}
                     src={logo}
                     alt="Project logo"
-                />
+                />*/}
                 <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">
                     Logg inn på din konto
                 </h2>
