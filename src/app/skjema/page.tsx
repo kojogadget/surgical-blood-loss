@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { useNavpageContext } from '@/features/NavBar/hooks/useNavpageContext'
 import Nav from '@/features/NavBar/NavBar'
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
+import Button from '@/components/Button'
 
 export default function Skjema() {
     const { setNavPage } = useNavpageContext()
@@ -429,18 +430,10 @@ export default function Skjema() {
                 </div>
 
                 <div className="mt-6 flex items-center justify-end gap-x-6">
-                    <button
-                        type="button"
-                        className="text-sm font-semibold leading-6 text-white"
-                    >
+                    <Button type="button" secondary>
                         Cancel
-                    </button>
-                    <button
-                        type="submit"
-                        className="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-                    >
-                        Save
-                    </button>
+                    </Button>
+                    <Button type="submit">Save</Button>
                 </div>
             </form>
         </Nav>

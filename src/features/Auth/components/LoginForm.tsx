@@ -4,6 +4,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase'
 import { useRouter } from 'next/navigation'
 import logo from '@/assets/logo.svg'
+import Button from '@/components/Button'
 
 export default function LoginForm() {
     const [email, setEmail] = useState<string>('')
@@ -98,12 +99,9 @@ export default function LoginForm() {
                     </div>
 
                     <div>
-                        <button
-                            type="submit"
-                            className="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-                        >
+                        <Button size="large" type="submit">
                             Logg inn
-                        </button>
+                        </Button>
                     </div>
                 </form>
             </div>
