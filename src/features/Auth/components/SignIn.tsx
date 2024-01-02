@@ -1,7 +1,7 @@
 import LoginForm from '@/features/Auth/components/LoginForm'
 import { useState, useEffect } from 'react'
 
-export default function NotSignedIn() {
+export default function SignIn() {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
