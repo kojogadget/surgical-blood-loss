@@ -4,7 +4,9 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase'
 import { useRouter } from 'next/navigation'
 import logo from '@/assets/logo.svg'
-import Button from '@/components/Button'
+import ButtonLarge from '@/components/Buttons/ButtonLarge'
+import Label from '@/components/Form/Label'
+import Input from '@/components/Form/Input'
 
 export default function LoginForm() {
     const [email, setEmail] = useState<string>('')
@@ -49,33 +51,19 @@ export default function LoginForm() {
                     method="POST"
                 >
                     <div>
-                        <label
-                            htmlFor="email"
-                            className="block text-sm font-medium leading-6 text-white"
-                        >
-                            E-post adresse
-                        </label>
-                        <div className="mt-2">
-                            <input
-                                onChange={(e) => setEmail(e.target.value)}
-                                id="email"
-                                name="email"
-                                type="email"
-                                autoComplete="email"
-                                required
-                                className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-                            />
-                        </div>
+                        <Label htmlFor="email" label="E-post adresse" />
+                        <Input
+                            name="email"
+                            type="email"
+                            autoComplete="email"
+                            required
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
                     </div>
 
                     <div>
                         <div className="flex items-center justify-between">
-                            <label
-                                htmlFor="password"
-                                className="block text-sm font-medium leading-6 text-white"
-                            >
-                                Passord
-                            </label>
+                            <Label htmlFor="password" label="Passord" />
                             <div className="text-sm">
                                 <a
                                     href="#"
@@ -85,23 +73,17 @@ export default function LoginForm() {
                                 </a>
                             </div>
                         </div>
-                        <div className="mt-2">
-                            <input
-                                onChange={(e) => setPassword(e.target.value)}
-                                id="password"
-                                name="password"
-                                type="password"
-                                autoComplete="current-password"
-                                required
-                                className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-                            />
-                        </div>
+                        <Input
+                            name="password"
+                            type="password"
+                            autoComplete="current-password"
+                            required
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
                     </div>
 
                     <div>
-                        <Button size="large" type="submit">
-                            Logg inn
-                        </Button>
+                        <ButtonLarge type="submit">Logg inn</ButtonLarge>
                     </div>
                 </form>
             </div>
