@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth'
@@ -65,12 +66,12 @@ export default function LoginForm() {
                         <div className="flex items-center justify-between">
                             <Label htmlFor="password" label="Passord" />
                             <div className="text-sm">
-                                <a
+                                <Link
                                     href="#"
                                     className="font-semibold text-indigo-400 hover:text-indigo-300"
                                 >
                                     Glemt passord?
-                                </a>
+                                </Link>
                             </div>
                         </div>
                         <Input
