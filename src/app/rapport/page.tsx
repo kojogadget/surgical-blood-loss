@@ -2,6 +2,7 @@
 import { useEffect } from 'react'
 import { useNavpageContext } from '@/features/NavBar/hooks/useNavpageContext'
 import Nav from '@/features/NavBar/NavBar'
+import SectionHeader from '@/components/SectionHeader'
 
 export default function Rapport() {
     const { setNavPage } = useNavpageContext()
@@ -12,8 +13,7 @@ export default function Rapport() {
 
     return (
         <Nav>
-            <h1>Kirurgisk Blodtap</h1>
-            <h2>Rapport</h2>
+            <SectionHeader>Rapport</SectionHeader>
         </Nav>
     )
 }

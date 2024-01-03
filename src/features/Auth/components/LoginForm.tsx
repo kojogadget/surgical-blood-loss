@@ -1,9 +1,13 @@
-// import Image from 'next/image'
+import Link from 'next/link'
+import Image from 'next/image'
 import React, { useState } from 'react'
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase'
 import { useRouter } from 'next/navigation'
-// import logo from '@/assets/logo.svg'
+import logo from '@/assets/logo.svg'
+import ButtonLarge from '@/components/Buttons/ButtonLarge'
+import Label from '@/components/Form/Label'
+import Input from '@/components/Form/Input'
 
 export default function LoginForm() {
     const [email, setEmail] = useState<string>('')
@@ -26,15 +30,15 @@ export default function LoginForm() {
     }
 
     return (
-        <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+        <div className="flex min-h-screen flex-1 flex-col justify-center px-6 py-12 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                {/*<Image
-                    className="mx-auto h-auto w-auto"
+                <Image
+                    className="mx-auto h-20 w-auto"
                     width={40}
                     height={40}
                     src={logo}
                     alt="Project logo"
-                />*/}
+                />
                 <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">
                     Logg inn på din konto
                 </h2>
@@ -48,62 +52,39 @@ export default function LoginForm() {
                     method="POST"
                 >
                     <div>
-                        <label
-                            htmlFor="email"
-                            className="block text-sm font-medium leading-6 text-white"
-                        >
-                            E-post adresse
-                        </label>
-                        <div className="mt-2">
-                            <input
-                                onChange={(e) => setEmail(e.target.value)}
-                                id="email"
-                                name="email"
-                                type="email"
-                                autoComplete="email"
-                                required
-                                className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-                            />
-                        </div>
+                        <Label htmlFor="email" label="E-post adresse" />
+                        <Input
+                            name="email"
+                            type="email"
+                            autoComplete="email"
+                            required
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
                     </div>
 
                     <div>
                         <div className="flex items-center justify-between">
-                            <label
-                                htmlFor="password"
-                                className="block text-sm font-medium leading-6 text-white"
-                            >
-                                Passord
-                            </label>
+                            <Label htmlFor="password" label="Passord" />
                             <div className="text-sm">
-                                <a
+                                <Link
                                     href="#"
                                     className="font-semibold text-indigo-400 hover:text-indigo-300"
                                 >
                                     Glemt passord?
-                                </a>
+                                </Link>
                             </div>
                         </div>
-                        <div className="mt-2">
-                            <input
-                                onChange={(e) => setPassword(e.target.value)}
-                                id="password"
-                                name="password"
-                                type="password"
-                                autoComplete="current-password"
-                                required
-                                className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-                            />
-                        </div>
+                        <Input
+                            name="password"
+                            type="password"
+                            autoComplete="current-password"
+                            required
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
                     </div>
 
                     <div>
-                        <button
-                            type="submit"
-                            className="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-                        >
-                            Logg inn
-                        </button>
+                        <ButtonLarge type="submit">Logg inn</ButtonLarge>
                     </div>
                 </form>
             </div>

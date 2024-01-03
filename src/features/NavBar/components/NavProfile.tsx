@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link'
 import { UserCircleIcon, CheckCircleIcon } from '@heroicons/react/24/outline'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { signOut } from 'firebase/auth'
@@ -9,7 +10,7 @@ export default function NavProfile({ isMobile }: { isMobile?: boolean }) {
 
     return (
         <>
-            <a
+            <Link
                 href="#"
                 onClick={() => signOut(auth)}
                 className={
@@ -35,7 +36,7 @@ export default function NavProfile({ isMobile }: { isMobile?: boolean }) {
                         {user ? user?.email : 'Logg inn'}
                     </span>
                 )}
-            </a>
+            </Link>
         </>
     )
 }

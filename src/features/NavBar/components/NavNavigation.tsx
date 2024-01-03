@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useNavpageContext } from '@/features/NavBar/hooks/useNavpageContext'
 import { classNames } from '@/utils/classNames'
 import { ChartPieIcon, FolderIcon, HomeIcon } from '@heroicons/react/24/outline'
@@ -30,7 +31,7 @@ export default function NavNavigation() {
         <ul role="list" className="-mx-2 space-y-1" key={navPage}>
             {navigation.map((item) => (
                 <li key={item.name}>
-                    <a
+                    <Link
                         href={item.href}
                         onClick={() => {
                             setNavPage(item.name)
@@ -47,7 +48,7 @@ export default function NavNavigation() {
                             aria-hidden="true"
                         />
                         {item.name}
-                    </a>
+                    </Link>
                 </li>
             ))}
         </ul>
