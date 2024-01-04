@@ -2,6 +2,7 @@ import FormSection from '@/components/Form/FormSection'
 import Fieldset from '@/components/Form/Fieldset'
 import Checkbox from '@/components/Form/Checkbox'
 import Counter from '../Form/Counter'
+import CounterWrapper from '../Form/CounterWrapper'
 
 export default function DataEquipment() {
     return (
@@ -13,50 +14,68 @@ export default function DataEquipment() {
             <div className="sm:col-span-3">
                 <div className="mb-8">
                     <Fieldset label="Kompress">
-                        <Checkbox
-                            name="kompress-brett"
-                            label="Kompress Brett"
-                        />
-                        <Counter
-                            initialCount={0}
-                            name="kompress-brett-counter"
-                        />
-                        <Checkbox name="kompress-blue" label="Kompress (Blå)" />
-                        <Counter
-                            initialCount={0}
-                            name="kompress-blue-counter"
-                        />
-                        <Checkbox
-                            name="kompress-orange"
-                            label="Kompress (Orange)"
-                        />
-                        <Counter
-                            initialCount={0}
-                            name="kompress-orange-counter"
-                        />
+                        <CounterWrapper>
+                            <Checkbox
+                                name="kompress-brett"
+                                label="Kompressbrett"
+                            />
+                            <Counter
+                                initialCount={0}
+                                name="kompress-brett-counter"
+                            />
+                        </CounterWrapper>
+                        <CounterWrapper>
+                            <Checkbox
+                                name="kompress-blue"
+                                label="Kompress (Blå)"
+                            />
+                            <Counter
+                                initialCount={0}
+                                name="kompress-blue-counter"
+                            />
+                        </CounterWrapper>
+                        <CounterWrapper>
+                            <Checkbox
+                                name="kompress-orange"
+                                label="Kompress (Orange)"
+                            />
+                            <Counter
+                                initialCount={0}
+                                name="kompress-orange-counter"
+                            />
+                        </CounterWrapper>
                     </Fieldset>
                 </div>
             </div>
             <div className="sm:col-span-3">
                 <div className="mb-8">
                     <Fieldset label="Tupfer">
-                        <Checkbox name="tupfer-blue" label="Tupfer (Blå)" />
-                        <Counter initialCount={0} name="tupfer-blue-counter" />
-                        <Checkbox
-                            name="tupfer-orange"
-                            label="Tupfer (Orange)"
-                        />
-                        <Counter
-                            initialCount={0}
-                            name="tupfer-orange-counter"
-                        />
+                        <CounterWrapper>
+                            <Checkbox name="tupfer-blue" label="Tupfer (Blå)" />
+                            <Counter
+                                initialCount={0}
+                                name="tupfer-blue-counter"
+                            />
+                        </CounterWrapper>
+                        <CounterWrapper>
+                            <Checkbox
+                                name="tupfer-orange"
+                                label="Tupfer (Orange)"
+                            />
+                            <Counter
+                                initialCount={0}
+                                name="tupfer-orange-counter"
+                            />
+                        </CounterWrapper>
                     </Fieldset>
                 </div>
             </div>
             <div className="sm:col-span-3">
                 <Fieldset label="Annet">
-                    <Checkbox name="duk" label="Duk" />
-                    <Counter initialCount={0} name="duk-counter" />
+                    <CounterWrapper>
+                        <Checkbox name="duk" label="Duk" />
+                        <Counter initialCount={0} name="duk-counter" />
+                    </CounterWrapper>
                 </Fieldset>
             </div>
         </FormSection>
