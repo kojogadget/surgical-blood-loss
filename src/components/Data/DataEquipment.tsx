@@ -1,0 +1,64 @@
+import FormSection from '@/components/Form/FormSection'
+import Fieldset from '@/components/Form/Fieldset'
+import Checkbox from '@/components/Form/Checkbox'
+import Counter from '../Form/Counter'
+
+export default function DataEquipment() {
+    return (
+        <FormSection
+            title="Utstyr"
+            description="Antall av brukt utstyr"
+            className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6"
+        >
+            <div className="sm:col-span-3">
+                <div className="mb-8">
+                    <Fieldset label="Kompress">
+                        <Checkbox
+                            name="kompress-brett"
+                            label="Kompress Brett"
+                        />
+                        <Counter
+                            initialCount={0}
+                            name="kompress-brett-counter"
+                        />
+                        <Checkbox name="kompress-blue" label="Kompress (Blå)" />
+                        <Counter
+                            initialCount={0}
+                            name="kompress-blue-counter"
+                        />
+                        <Checkbox
+                            name="kompress-orange"
+                            label="Kompress (Orange)"
+                        />
+                        <Counter
+                            initialCount={0}
+                            name="kompress-orange-counter"
+                        />
+                    </Fieldset>
+                </div>
+            </div>
+            <div className="sm:col-span-3">
+                <div className="mb-8">
+                    <Fieldset label="Tupfer">
+                        <Checkbox name="tupfer-blue" label="Tupfer (Blå)" />
+                        <Counter initialCount={0} name="tupfer-blue-counter" />
+                        <Checkbox
+                            name="tupfer-orange"
+                            label="Tupfer (Orange)"
+                        />
+                        <Counter
+                            initialCount={0}
+                            name="tupfer-orange-counter"
+                        />
+                    </Fieldset>
+                </div>
+            </div>
+            <div className="sm:col-span-3">
+                <Fieldset label="Annet">
+                    <Checkbox name="duk" label="Duk" />
+                    <Counter initialCount={0} name="duk-counter" />
+                </Fieldset>
+            </div>
+        </FormSection>
+    )
+}

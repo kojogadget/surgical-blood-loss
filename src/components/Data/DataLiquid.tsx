@@ -1,0 +1,78 @@
+'use client'
+import { useState } from 'react'
+import FormSection from '@/components/Form/FormSection'
+import Checkbox from '@/components/Form/Checkbox'
+import Fieldset from '@/components/Form/Fieldset'
+import Label from '@/components/Form/Label'
+import Input from '@/components/Form/Input'
+
+export default function DataLiquid() {
+    const [showWater, setShowWater] = useState(false)
+    const [showNatrium, setShowNatrium] = useState(false)
+
+    const handleWater = () => {
+        setShowWater(!showWater)
+    }
+    const handleNatrium = () => {
+        setShowNatrium(!showNatrium)
+    }
+
+    return (
+        <FormSection
+            title="Veske"
+            description="Veske bruk under operasjon"
+            className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6"
+        >
+            <div className="col-span-full -mt-8">
+                <Fieldset label="">
+                    <Checkbox name="vann" onClick={handleWater} label="Vann" />
+                    {showWater && (
+                        <div className="mb-8 mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                            <div className="sm:col-span-3">
+                                <Label htmlFor="vann-start" label="Start" />
+                                <Input
+                                    name="vann-start"
+                                    placeholder="gram (g)"
+                                    type="number"
+                                />
+                            </div>
+                            <div className="sm:col-span-3">
+                                <Label htmlFor="vann-end" label="End" />
+                                <Input
+                                    name="vann-end"
+                                    placeholder="gram (g)"
+                                    type="number"
+                                />
+                            </div>
+                        </div>
+                    )}
+                    <Checkbox
+                        name="natriumclorid"
+                        onClick={handleNatrium}
+                        label="Natriumclorid"
+                    />
+                    {showNatrium && (
+                        <div className="my-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                            <div className="sm:col-span-3">
+                                <Label htmlFor="vann-start" label="Start" />
+                                <Input
+                                    name="vann-start"
+                                    placeholder="gram (g)"
+                                    type="number"
+                                />
+                            </div>
+                            <div className="sm:col-span-3">
+                                <Label htmlFor="vann-end" label="End" />
+                                <Input
+                                    name="vann-end"
+                                    placeholder="gram (g)"
+                                    type="number"
+                                />
+                            </div>
+                        </div>
+                    )}
+                </Fieldset>
+            </div>
+        </FormSection>
+    )
+}
