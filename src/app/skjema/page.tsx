@@ -14,7 +14,7 @@ export default function SkjermPage() {
 
     return (
         <Nav>
-            <SectionHeader> </SectionHeader>
+            <SectionHeader>Skjema</SectionHeader>
             <DataForm />
         </Nav>
     )

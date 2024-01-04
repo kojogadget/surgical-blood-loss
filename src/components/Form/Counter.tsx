@@ -23,7 +23,6 @@ export default function Counter({
         setCount(Number(e.target.value))
     }
 
-    // className="block h-8 w-full border-0 bg-white/5 py-2.5 text-center text-white shadow-sm ring-1 ring-inset ring-white/10 [appearance:textfield] focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
     return (
         <>
             <div className="relative flex max-w-32 items-center">
