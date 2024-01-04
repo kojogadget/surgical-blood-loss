@@ -19,7 +19,7 @@ export default function DataSuction() {
                 />
             </div>
             <div className="sm:col-span-3">
-                <Label htmlFor="total-sug" label="Totalt sug" />
+                <Label htmlFor="total-sug" label="Total mengde sug" />
                 <Input
                     name="total-sug"
                     className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"

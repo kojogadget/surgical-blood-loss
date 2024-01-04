@@ -23,7 +23,7 @@ export default function LoginForm() {
             await signInWithEmailAndPassword(email, password)
             setEmail('')
             setPassword('')
-            router.push('/skjema')
+            router.push('/')
         } catch (error) {
             console.log(error)
         }
@@ -52,7 +52,7 @@ export default function LoginForm() {
                     method="POST"
                 >
                     <div>
-                        <Label htmlFor="email" label="E-post adresse" />
+                        <Label htmlFor="email" label="E-post" />
                         <Input
                             name="email"
                             type="email"

@@ -20,7 +20,7 @@ export default function DataLiquid() {
     return (
         <FormSection
             title="Væske"
-            description="Væske bruk under operasjon"
+            description="Væske brukt under operasjonen. Oppgis i vekt av væske før og etter operasjonen."
             className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6"
         >
             <div className="col-span-full -mt-8">
