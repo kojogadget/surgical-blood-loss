@@ -28,7 +28,7 @@ export default function NavMobile() {
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                     >
-                        <div className="fixed inset-0 bg-gray-900/80" />
+                        <div className="bg-gray-900/80 fixed inset-0" />
                     </Transition.Child>
 
                     <div className="fixed inset-0 flex">
@@ -71,7 +71,7 @@ export default function NavMobile() {
                                 </Transition.Child>
 
                                 {/* Sidebar component, swap this element with another sidebar if you like */}
-                                <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-2 ring-1 ring-white/10">
+                                <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-backgroundLight px-6 pb-2 ring-1 ring-white/10">
                                     <NavLogo />
                                     <nav className="flex flex-1 flex-col">
                                         <ul
@@ -90,10 +90,10 @@ export default function NavMobile() {
                 </Dialog>
             </Transition.Root>
 
-            <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-gray-900 px-4 py-4 shadow-sm sm:px-6 lg:hidden">
+            <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-backgroundLight px-4 py-4 shadow-sm sm:px-6 lg:hidden">
                 <button
                     type="button"
-                    className="-m-2.5 p-2.5 text-gray-400 lg:hidden"
+                    className="text-gray-400 -m-2.5 p-2.5 lg:hidden"
                     onClick={() => setSidebarOpen(true)}
                 >
                     <span className="sr-only">Open sidebar</span>

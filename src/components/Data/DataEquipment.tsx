@@ -8,7 +8,7 @@ export default function DataEquipment() {
     return (
         <FormSection
             title="Utstyr"
-            description="Antall av brukt utstyr"
+            description="Antall av brukt utstyr. Legg inn i antall pakker."
             className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6"
         >
             <div className="sm:col-span-3">

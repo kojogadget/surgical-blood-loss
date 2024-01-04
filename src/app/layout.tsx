@@ -17,7 +17,7 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html className="h-full bg-gray-950 text-white" lang="no">
+        <html className="h-full bg-background text-white" lang="no">
             <body className={inter.className + ' h-full'}>
                 <Providers>
                     <ProtectedRoute>{children}</ProtectedRoute>

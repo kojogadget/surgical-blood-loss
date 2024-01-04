@@ -32,6 +32,7 @@ export default function DataLiquid() {
                                 <Label htmlFor="vann-start" label="Start" />
                                 <Input
                                     name="vann-start"
+                                    className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                                     placeholder="gram (g)"
                                     type="number"
                                 />
@@ -41,6 +42,7 @@ export default function DataLiquid() {
                                 <Input
                                     name="vann-end"
                                     placeholder="gram (g)"
+                                    className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                                     type="number"
                                 />
                             </div>
@@ -59,12 +61,14 @@ export default function DataLiquid() {
                                     name="vann-start"
                                     placeholder="gram (g)"
                                     type="number"
+                                    className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                                 />
                             </div>
                             <div className="sm:col-span-3">
                                 <Label htmlFor="vann-end" label="End" />
                                 <Input
                                     name="vann-end"
+                                    className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                                     placeholder="gram (g)"
                                     type="number"
                                 />
