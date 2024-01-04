@@ -10,6 +10,7 @@ const config: Config = {
     theme: {
         colors: {
             primary: '#2176AE',
+            primaryDark: '#1D689A',
             secondary: '#BB0A21',
             accent: '#214E34',
             white: '#fcfcfc',

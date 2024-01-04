@@ -23,7 +23,7 @@ export default function LoginForm() {
             await signInWithEmailAndPassword(email, password)
             setEmail('')
             setPassword('')
-            router.push('/')
+            router.push('/skjema')
         } catch (error) {
             console.log(error)
         }
@@ -68,7 +68,7 @@ export default function LoginForm() {
                             <div className="text-sm">
                                 <Link
                                     href="#"
-                                    className="font-semibold text-indigo-400 hover:text-indigo-300"
+                                    className="font-semibold text-primary hover:text-primaryDark"
                                 >
                                     Glemt passord?
                                 </Link>
