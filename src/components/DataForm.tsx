@@ -7,6 +7,7 @@ import DataSuction from './Data/DataSuction'
 import DataOther from './Data/DataOther'
 import DataEstimate from './Data/DataEstimate'
 import DataWeight from './Data/DataWeight'
+import Modal from './Modal'
 
 export default function DataForm() {
     return (
@@ -24,6 +25,7 @@ export default function DataForm() {
                 <ButtonTransparent type="button">Cancel</ButtonTransparent>
                 <ButtonPrimary type="submit">Save</ButtonPrimary>
             </div>
+            <Modal />
         </form>
     )
 }
