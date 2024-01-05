@@ -52,7 +52,7 @@ export default function LoginForm() {
                     method="POST"
                 >
                     <div>
-                        <Label htmlFor="email" label="E-post adresse" />
+                        <Label htmlFor="email" label="E-post" />
                         <Input
                             name="email"
                             type="email"
@@ -68,7 +68,7 @@ export default function LoginForm() {
                             <div className="text-sm">
                                 <Link
                                     href="#"
-                                    className="font-semibold text-indigo-400 hover:text-indigo-300"
+                                    className="font-semibold text-primary hover:text-primaryDark"
                                 >
                                     Glemt passord?
                                 </Link>

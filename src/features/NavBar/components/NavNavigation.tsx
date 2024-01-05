@@ -8,10 +8,10 @@ export default function NavNavigation() {
 
     const navigation = [
         {
-            name: 'Dashboard',
+            name: 'Startside',
             href: '/',
             icon: HomeIcon,
-            current: navPage === 'Dashboard',
+            current: navPage === 'Startside',
         },
         {
             name: 'Skjema',

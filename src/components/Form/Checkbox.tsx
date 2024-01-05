@@ -18,7 +18,7 @@ export default function Checkbox({
                     name={name}
                     id={name}
                     type="checkbox"
-                    className="h-4 w-4 rounded border-white/10 bg-white/5 text-indigo-600 focus:ring-indigo-600 focus:ring-offset-gray-900"
+                    className="focus:ring-indigo-600 focus:ring-offset-gray-900 h-4 w-4 rounded border-white bg-white/95 text-primary"
                 />
             </div>
             <div className="text-sm leading-6">

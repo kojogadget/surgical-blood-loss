@@ -5,7 +5,7 @@ import Nav from '@/features/NavBar/NavBar'
 import DataForm from '@/components/DataForm'
 import SectionHeader from '@/components/SectionHeader'
 
-export default function Skjema() {
+export default function SkjermPage() {
     const { setNavPage } = useNavpageContext()
 
     useEffect(() => {

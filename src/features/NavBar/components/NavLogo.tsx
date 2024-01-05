@@ -5,7 +5,7 @@ export default function NavLogo() {
     return (
         <div className="flex h-16 shrink-0 items-center">
             <Image
-                className="h-8 w-auto"
+                className="h-10 w-auto"
                 width={32}
                 height={32}
                 src={logo}
