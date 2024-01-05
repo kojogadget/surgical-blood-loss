@@ -3,8 +3,15 @@ import Fieldset from '@/components/Form/Fieldset'
 import Checkbox from '@/components/Form/Checkbox'
 import Counter from '../Form/Counter'
 import CounterWrapper from '../Form/CounterWrapper'
+import DataType from '@/types/data'
 
-export default function DataEquipment() {
+export default function DataEquipment({
+    data,
+    setData,
+}: {
+    data: DataType
+    setData: (open: DataType) => void
+}) {
     return (
         <FormSection
             title="Utstyr"
@@ -18,8 +25,18 @@ export default function DataEquipment() {
                             <Checkbox
                                 name="kompress-brett"
                                 label="Kompressbrett"
+                                checked={data.compressBoardEnabled}
+                                onClick={() =>
+                                    setData({
+                                        ...data,
+                                        compressBoardEnabled:
+                                            !data.compressBoardEnabled,
+                                    })
+                                }
                             />
                             <Counter
+                                data={data}
+                                setData={setData}
                                 initialCount={0}
                                 name="kompress-brett-counter"
                             />
@@ -28,8 +45,18 @@ export default function DataEquipment() {
                             <Checkbox
                                 name="kompress-blue"
                                 label="Kompress (Blå)"
+                                checked={data.compressBlueEnabled}
+                                onClick={() =>
+                                    setData({
+                                        ...data,
+                                        compressBlueEnabled:
+                                            !data.compressBlueEnabled,
+                                    })
+                                }
                             />
                             <Counter
+                                data={data}
+                                setData={setData}
                                 initialCount={0}
                                 name="kompress-blue-counter"
                             />
@@ -38,8 +65,18 @@ export default function DataEquipment() {
                             <Checkbox
                                 name="kompress-orange"
                                 label="Kompress (Orange)"
+                                checked={data.compressOrangeEnabled}
+                                onClick={() =>
+                                    setData({
+                                        ...data,
+                                        compressOrangeEnabled:
+                                            !data.compressOrangeEnabled,
+                                    })
+                                }
                             />
                             <Counter
+                                data={data}
+                                setData={setData}
                                 initialCount={0}
                                 name="kompress-orange-counter"
                             />
@@ -51,8 +88,21 @@ export default function DataEquipment() {
                 <div className="mb-8">
                     <Fieldset label="Tupfer">
                         <CounterWrapper>
-                            <Checkbox name="tupfer-blue" label="Tupfer (Blå)" />
+                            <Checkbox
+                                name="tupfer-blue"
+                                label="Tupfer (Blå)"
+                                checked={data.tupferBlueEnabled}
+                                onClick={() =>
+                                    setData({
+                                        ...data,
+                                        tupferBlueEnabled:
+                                            !data.tupferBlueEnabled,
+                                    })
+                                }
+                            />
                             <Counter
+                                data={data}
+                                setData={setData}
                                 initialCount={0}
                                 name="tupfer-blue-counter"
                             />
@@ -61,8 +111,18 @@ export default function DataEquipment() {
                             <Checkbox
                                 name="tupfer-orange"
                                 label="Tupfer (Orange)"
+                                checked={data.tupferOrangeEnabled}
+                                onClick={() =>
+                                    setData({
+                                        ...data,
+                                        tupferOrangeEnabled:
+                                            !data.tupferOrangeEnabled,
+                                    })
+                                }
                             />
                             <Counter
+                                data={data}
+                                setData={setData}
                                 initialCount={0}
                                 name="tupfer-orange-counter"
                             />
@@ -73,8 +133,23 @@ export default function DataEquipment() {
             <div className="sm:col-span-3">
                 <Fieldset label="Annet">
                     <CounterWrapper>
-                        <Checkbox name="duk" label="Duk" />
-                        <Counter initialCount={0} name="duk-counter" />
+                        <Checkbox
+                            name="duk"
+                            label="Duk"
+                            checked={data.coversEnabled}
+                            onClick={() =>
+                                setData({
+                                    ...data,
+                                    coversEnabled: !data.coversEnabled,
+                                })
+                            }
+                        />
+                        <Counter
+                            data={data}
+                            setData={setData}
+                            initialCount={0}
+                            name="duk-counter"
+                        />
                     </CounterWrapper>
                 </Fieldset>
             </div>

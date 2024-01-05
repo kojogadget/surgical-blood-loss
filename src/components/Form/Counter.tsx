@@ -1,13 +1,18 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { PlusIcon, MinusIcon } from '@heroicons/react/24/solid'
 import Input from './Input'
+import DataType from '@/types/data'
 
 export default function Counter({
     name,
     initialCount,
+    data,
+    setData,
 }: {
     name: string
     initialCount: number
+    data: DataType
+    setData: (open: DataType) => void
 }) {
     const [count, setCount] = useState(initialCount)
 
@@ -23,6 +28,10 @@ export default function Counter({
         setCount(Number(e.target.value))
     }
 
+    useEffect(() => {
+        setData({ ...data })
+    }, [count])
+
     return (
         <>
             <div className="relative flex max-w-32 items-center">
@@ -30,7 +39,7 @@ export default function Counter({
                     type="button"
                     onClick={handleDecrement}
                     id="decrement-button"
-                    className="hover:bg-gray-200 focus:ring-indigo-500 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 h-8 rounded-s-lg border-0 bg-white/5 p-3 shadow-sm ring-1 ring-inset ring-white/10 focus:outline-none focus:ring-2 focus:ring-inset"
+                    className="h-8 rounded-s-lg border-0 bg-white/5 p-3 shadow-sm ring-1 ring-inset ring-white/10 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700"
                 >
                     <MinusIcon className="h-3 w-3" aria-hidden="true" />
                 </button>
@@ -48,7 +57,7 @@ export default function Counter({
                     type="button"
                     onClick={handleIncrement}
                     id="increment-button"
-                    className="hover:bg-gray-200 focus:ring-indigo-500 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 h-8 rounded-e-lg border-0 bg-white/5 p-3 shadow-sm ring-1 ring-inset ring-white/10 focus:outline-none focus:ring-2 focus:ring-inset"
+                    className="h-8 rounded-e-lg border-0 bg-white/5 p-3 shadow-sm ring-1 ring-inset ring-white/10 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700"
                 >
                     <PlusIcon className="h-3 w-3" aria-hidden="true" />
                 </button>

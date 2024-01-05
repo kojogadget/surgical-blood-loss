@@ -1,19 +1,26 @@
-import { Fragment, useRef, useState } from 'react'
+import { Fragment, useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { CheckIcon } from '@heroicons/react/24/outline'
+import DataType from '@/types/data'
 
-export default function Modal() {
-    const [open, setOpen] = useState(true)
-
+export default function Modal({
+    isOpen,
+    setIsOpen,
+    data,
+}: {
+    isOpen: boolean
+    setIsOpen: (open: boolean) => void
+    data: DataType
+}) {
     const cancelButtonRef = useRef(null)
 
     return (
-        <Transition.Root show={open} as={Fragment}>
+        <Transition.Root show={isOpen} as={Fragment}>
             <Dialog
                 as="div"
                 className="relative z-10"
                 initialFocus={cancelButtonRef}
-                onClose={setOpen}
+                onClose={setIsOpen}
             >
                 <Transition.Child
                     as={Fragment}
@@ -24,7 +31,7 @@ export default function Modal() {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                 >
-                    <div className="bg-gray-500 fixed inset-0 bg-opacity-75 transition-opacity" />
+                    <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
                 </Transition.Child>
 
                 <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
@@ -40,28 +47,64 @@ export default function Modal() {
                         >
                             <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                                 <div>
-                                    <div className="bg-green-100 mx-auto flex h-12 w-12 items-center justify-center rounded-full">
-                                        <CheckIcon
-                                            className="text-green-600 h-6 w-6"
-                                            aria-hidden="true"
-                                        />
-                                    </div>
                                     <div className="mt-3 text-center sm:mt-5">
                                         <Dialog.Title
                                             as="h3"
-                                            className="text-gray-900 text-base font-semibold leading-6"
+                                            className="text-base font-semibold leading-6 text-gray-900"
                                         >
-                                            Payment successful
+                                            Oppsummering
                                         </Dialog.Title>
                                         <div className="mt-2">
-                                            <p className="text-gray-500 text-sm">
-                                                Lorem ipsum, dolor sit amet
-                                                consectetur adipisicing elit.
-                                                Eius aliquam laudantium
-                                                explicabo pariatur iste dolorem
-                                                animi vitae error totam. At
-                                                sapiente aliquam accusamus
-                                                facere veritatis.
+                                            <p className="flex flex-col items-start text-sm text-gray-500">
+                                                {data.compressBoardEnabled && (
+                                                    <span>
+                                                        Kompressbrett:{' '}
+                                                        {data.compressBoard}
+                                                    </span>
+                                                )}
+                                                {data.compressBlueEnabled && (
+                                                    <span>
+                                                        Kompress (Blå):{' '}
+                                                        {data.compressBlue}
+                                                    </span>
+                                                )}
+                                                {data.compressOrangeEnabled && (
+                                                    <span>
+                                                        Kompress (Orange):{' '}
+                                                        {data.compressOrange}
+                                                    </span>
+                                                )}
+                                                {data.tupferBlueEnabled && (
+                                                    <span>
+                                                        Tupfer (Blå):{' '}
+                                                        {data.tupferBlue}
+                                                    </span>
+                                                )}
+                                                {data.tupferOrangeEnabled && (
+                                                    <span>
+                                                        Tupfer (Orange):{' '}
+                                                        {data.tupferOrange}
+                                                    </span>
+                                                )}
+                                                {data.coversEnabled && (
+                                                    <span>
+                                                        Duk: {data.covers}
+                                                    </span>
+                                                )}
+                                                <span>
+                                                    Forstervann:{' '}
+                                                    {data.suctionAmniotic}
+                                                </span>
+                                                <span>
+                                                    Total mengde sug:{' '}
+                                                    {data.suctionTotal}
+                                                </span>
+                                                <span>Annet: {data.other}</span>
+                                                <span>
+                                                    Visuelt estimat:{' '}
+                                                    {data.estimate}
+                                                </span>
+                                                <span>Vekt: {data.weight}</span>
                                             </p>
                                         </div>
                                     </div>
@@ -69,18 +112,18 @@ export default function Modal() {
                                 <div className="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
                                     <button
                                         type="button"
-                                        className="bg-indigo-600 hover:bg-indigo-500 focus-visible:outline-indigo-600 inline-flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:col-start-2"
-                                        onClick={() => setOpen(false)}
+                                        className="inline-flex w-full justify-center rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primaryDark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primaryDark sm:col-start-2"
+                                        onClick={() => setIsOpen(false)}
                                     >
-                                        Deactivate
+                                        Bekreft
                                     </button>
                                     <button
                                         type="button"
-                                        className="text-gray-900 ring-gray-300 hover:bg-gray-50 mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold shadow-sm ring-1 ring-inset sm:col-start-1 sm:mt-0"
-                                        onClick={() => setOpen(false)}
+                                        className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:col-start-1 sm:mt-0"
+                                        onClick={() => setIsOpen(false)}
                                         ref={cancelButtonRef}
                                     >
-                                        Cancel
+                                        Avbryt
                                     </button>
                                 </div>
                             </Dialog.Panel>

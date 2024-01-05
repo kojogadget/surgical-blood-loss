@@ -1,7 +1,14 @@
 import FormSection from '@/components/Form/FormSection'
 import Input from '@/components/Form/Input'
+import DataType from '@/types/data'
 
-export default function DataWeight() {
+export default function DataWeight({
+    data,
+    setData,
+}: {
+    data: DataType
+    setData: (open: DataType) => void
+}) {
     return (
         <FormSection
             title="Vekt"
@@ -13,6 +20,9 @@ export default function DataWeight() {
                     name="vekt"
                     className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                     placeholder="gram (g)"
+                    onChange={(e) =>
+                        setData({ ...data, weight: Number(e.target.value) })
+                    }
                     type="number"
                 />
             </div>

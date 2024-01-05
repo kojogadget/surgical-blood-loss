@@ -1,7 +1,14 @@
 import FormSection from '@/components/Form/FormSection'
 import Input from '@/components/Form/Input'
+import DataType from '@/types/data'
 
-export default function DataOther() {
+export default function DataOther({
+    data,
+    setData,
+}: {
+    data: DataType
+    setData: (open: DataType) => void
+}) {
     return (
         <FormSection
             title="Annet"
@@ -13,6 +20,9 @@ export default function DataOther() {
                     name="other-dry"
                     className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                     placeholder="gram (g)"
+                    onChange={(e) =>
+                        setData({ ...data, other: Number(e.target.value) })
+                    }
                     type="number"
                 />
             </div>
