@@ -1,36 +1,32 @@
-import { useState, useEffect } from 'react'
 import { PlusIcon, MinusIcon } from '@heroicons/react/24/solid'
 import Input from './Input'
-import DataType from '@/types/data'
+import { DataTypes } from '@/types'
 
 export default function Counter({
     name,
-    initialCount,
     data,
-    setData,
+    updateData,
+    keyValue,
 }: {
     name: string
     initialCount: number
-    data: DataType
-    setData: (open: DataType) => void
+    data: DataTypes
+    updateData: (key: keyof DataTypes, value: number) => void
+    keyValue: keyof DataTypes
 }) {
-    const [count, setCount] = useState(initialCount)
-
     const handleIncrement = () => {
-        setCount(count + 1)
+        if (typeof data[keyValue] === 'number') {
+            updateData(keyValue, data[keyValue] + 1)
+        } else null
     }
     const handleDecrement = () => {
-        if (count > 0) {
-            setCount(count - 1)
+        if (data[keyValue] > 0) {
+            updateData(keyValue, data[keyValue] - 1)
         }
     }
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setCount(Number(e.target.value))
+        updateData(keyValue, Number(e.target.value))
     }
-
-    useEffect(() => {
-        setData({ ...data })
-    }, [count])
 
     return (
         <>
@@ -49,7 +45,7 @@ export default function Counter({
                     data-input-counter
                     aria-describedby={name}
                     required
-                    value={count}
+                    value={data[keyValue]}
                     className="-mt-2 block h-8 rounded-none text-center [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                     type="number"
                 />

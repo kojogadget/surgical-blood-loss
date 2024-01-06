@@ -1,16 +1,17 @@
 import { Fragment, useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { CheckIcon } from '@heroicons/react/24/outline'
-import DataType from '@/types/data'
+import { DataTypes, DataFlagTypes } from '@/types'
 
 export default function Modal({
     isOpen,
     setIsOpen,
     data,
+    dataFlag,
 }: {
     isOpen: boolean
     setIsOpen: (open: boolean) => void
-    data: DataType
+    data: DataTypes
+    dataFlag: DataFlagTypes
 }) {
     const cancelButtonRef = useRef(null)
 
@@ -56,37 +57,37 @@ export default function Modal({
                                         </Dialog.Title>
                                         <div className="mt-2">
                                             <p className="flex flex-col items-start text-sm text-gray-500">
-                                                {data.compressBoardEnabled && (
+                                                {dataFlag.compressBoardEnabled && (
                                                     <span>
                                                         Kompressbrett:{' '}
                                                         {data.compressBoard}
                                                     </span>
                                                 )}
-                                                {data.compressBlueEnabled && (
+                                                {dataFlag.compressBlueEnabled && (
                                                     <span>
                                                         Kompress (Blå):{' '}
                                                         {data.compressBlue}
                                                     </span>
                                                 )}
-                                                {data.compressOrangeEnabled && (
+                                                {dataFlag.compressOrangeEnabled && (
                                                     <span>
                                                         Kompress (Orange):{' '}
                                                         {data.compressOrange}
                                                     </span>
                                                 )}
-                                                {data.tupferBlueEnabled && (
+                                                {dataFlag.tupferBlueEnabled && (
                                                     <span>
                                                         Tupfer (Blå):{' '}
                                                         {data.tupferBlue}
                                                     </span>
                                                 )}
-                                                {data.tupferOrangeEnabled && (
+                                                {dataFlag.tupferOrangeEnabled && (
                                                     <span>
                                                         Tupfer (Orange):{' '}
                                                         {data.tupferOrange}
                                                     </span>
                                                 )}
-                                                {data.coversEnabled && (
+                                                {dataFlag.coversEnabled && (
                                                     <span>
                                                         Duk: {data.covers}
                                                     </span>

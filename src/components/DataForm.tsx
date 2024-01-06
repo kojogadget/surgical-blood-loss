@@ -9,37 +9,22 @@ import DataOther from './Data/DataOther'
 import DataEstimate from './Data/DataEstimate'
 import DataWeight from './Data/DataWeight'
 import Modal from './Modal'
-import DataType from '@/types/data'
-
-const dataInit: DataType = {
-    compressBoardEnabled: false,
-    compressBoard: 0,
-    compressBlueEnabled: false,
-    compressBlue: 0,
-    compressOrangeEnabled: false,
-    compressOrange: 0,
-    tupferBlueEnabled: false,
-    tupferBlue: 0,
-    tupferOrangeEnabled: false,
-    tupferOrange: 0,
-    coversEnabled: false,
-    covers: 0,
-    waterEnabled: false,
-    waterStart: 0,
-    waterEnd: 0,
-    natcloEnabled: false,
-    natcloStart: 0,
-    natcloEnd: 0,
-    suctionAmniotic: 0,
-    suctionTotal: 0,
-    other: 0,
-    estimate: 0,
-    weight: 0,
-}
+import { DataTypes, DataFlagTypes } from '@/types'
+import { initData } from '@/data/initData'
+import { initDataFlag } from '@/data/initDataFlag'
 
 export default function DataForm() {
     const [openModal, setOpenModal] = useState<boolean>(false)
-    const [data, setData] = useState<DataType>(dataInit)
+    const [data, setData] = useState<DataTypes>(initData)
+    const [dataFlag, setDataFlag] = useState<DataFlagTypes>(initDataFlag)
+
+    const updateData = (key: keyof DataTypes, value: number): void => {
+        setData((prev) => ({ ...prev, [key]: value }))
+    }
+
+    const updateDataFlag = (key: keyof DataFlagTypes, value: boolean): void => {
+        setDataFlag((prev) => ({ ...prev, [key]: value }))
+    }
 
     useEffect(() => {
         console.log(data)
@@ -48,12 +33,21 @@ export default function DataForm() {
     return (
         <form>
             <div className="space-y-12">
-                <DataEquipment data={data} setData={setData} />
-                <DataLiquid data={data} setData={setData} />
-                <DataSuction data={data} setData={setData} />
-                <DataOther data={data} setData={setData} />
-                <DataEstimate data={data} setData={setData} />
-                <DataWeight data={data} setData={setData} />
+                <DataEquipment
+                    data={data}
+                    dataFlag={dataFlag}
+                    updateDataFlag={updateDataFlag}
+                    updateData={updateData}
+                />
+                <DataLiquid
+                    dataFlag={dataFlag}
+                    updateDataFlag={updateDataFlag}
+                    updateData={updateData}
+                />
+                <DataSuction updateData={updateData} />
+                <DataOther updateData={updateData} />
+                <DataEstimate updateData={updateData} />
+                <DataWeight updateData={updateData} />
             </div>
 
             <div className="mt-6 flex items-center justify-end gap-x-6">
@@ -62,7 +56,12 @@ export default function DataForm() {
                     Save
                 </ButtonPrimary>
             </div>
-            <Modal data={data} isOpen={openModal} setIsOpen={setOpenModal} />
+            <Modal
+                data={data}
+                dataFlag={dataFlag}
+                isOpen={openModal}
+                setIsOpen={setOpenModal}
+            />
         </form>
     )
 }

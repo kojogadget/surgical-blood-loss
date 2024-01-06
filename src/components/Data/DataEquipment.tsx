@@ -1,16 +1,20 @@
 import FormSection from '@/components/Form/FormSection'
 import Fieldset from '@/components/Form/Fieldset'
 import Checkbox from '@/components/Form/Checkbox'
-import Counter from '../Form/Counter'
-import CounterWrapper from '../Form/CounterWrapper'
-import DataType from '@/types/data'
+import Counter from '@/components/Form/Counter'
+import CounterWrapper from '@/components/Form/CounterWrapper'
+import { DataTypes, DataFlagTypes } from '@/types'
 
 export default function DataEquipment({
     data,
-    setData,
+    updateData,
+    dataFlag,
+    updateDataFlag,
 }: {
-    data: DataType
-    setData: (open: DataType) => void
+    data: DataTypes
+    updateData: (key: keyof DataTypes, value: number) => void
+    dataFlag: DataFlagTypes
+    updateDataFlag: (key: keyof DataFlagTypes, value: boolean) => void
 }) {
     return (
         <FormSection
@@ -25,18 +29,18 @@ export default function DataEquipment({
                             <Checkbox
                                 name="kompress-brett"
                                 label="Kompressbrett"
-                                checked={data.compressBoardEnabled}
+                                checked={dataFlag.compressBoardEnabled}
                                 onClick={() =>
-                                    setData({
-                                        ...data,
-                                        compressBoardEnabled:
-                                            !data.compressBoardEnabled,
-                                    })
+                                    updateDataFlag(
+                                        'compressBoardEnabled',
+                                        !dataFlag.compressBoardEnabled
+                                    )
                                 }
                             />
                             <Counter
                                 data={data}
-                                setData={setData}
+                                updateData={updateData}
+                                keyValue="compressBoard"
                                 initialCount={0}
                                 name="kompress-brett-counter"
                             />
@@ -45,18 +49,18 @@ export default function DataEquipment({
                             <Checkbox
                                 name="kompress-blue"
                                 label="Kompress (Blå)"
-                                checked={data.compressBlueEnabled}
+                                checked={dataFlag.compressBlueEnabled}
                                 onClick={() =>
-                                    setData({
-                                        ...data,
-                                        compressBlueEnabled:
-                                            !data.compressBlueEnabled,
-                                    })
+                                    updateDataFlag(
+                                        'compressBlueEnabled',
+                                        !dataFlag.compressBlueEnabled
+                                    )
                                 }
                             />
                             <Counter
                                 data={data}
-                                setData={setData}
+                                updateData={updateData}
+                                keyValue="compressBlue"
                                 initialCount={0}
                                 name="kompress-blue-counter"
                             />
@@ -65,18 +69,18 @@ export default function DataEquipment({
                             <Checkbox
                                 name="kompress-orange"
                                 label="Kompress (Orange)"
-                                checked={data.compressOrangeEnabled}
+                                checked={dataFlag.compressOrangeEnabled}
                                 onClick={() =>
-                                    setData({
-                                        ...data,
-                                        compressOrangeEnabled:
-                                            !data.compressOrangeEnabled,
-                                    })
+                                    updateDataFlag(
+                                        'compressOrangeEnabled',
+                                        !dataFlag.compressOrangeEnabled
+                                    )
                                 }
                             />
                             <Counter
                                 data={data}
-                                setData={setData}
+                                updateData={updateData}
+                                keyValue="compressOrange"
                                 initialCount={0}
                                 name="kompress-orange-counter"
                             />
@@ -91,18 +95,18 @@ export default function DataEquipment({
                             <Checkbox
                                 name="tupfer-blue"
                                 label="Tupfer (Blå)"
-                                checked={data.tupferBlueEnabled}
+                                checked={dataFlag.tupferBlueEnabled}
                                 onClick={() =>
-                                    setData({
-                                        ...data,
-                                        tupferBlueEnabled:
-                                            !data.tupferBlueEnabled,
-                                    })
+                                    updateDataFlag(
+                                        'tupferBlueEnabled',
+                                        !dataFlag.tupferBlueEnabled
+                                    )
                                 }
                             />
                             <Counter
                                 data={data}
-                                setData={setData}
+                                updateData={updateData}
+                                keyValue="tupferBlue"
                                 initialCount={0}
                                 name="tupfer-blue-counter"
                             />
@@ -111,18 +115,18 @@ export default function DataEquipment({
                             <Checkbox
                                 name="tupfer-orange"
                                 label="Tupfer (Orange)"
-                                checked={data.tupferOrangeEnabled}
+                                checked={dataFlag.tupferOrangeEnabled}
                                 onClick={() =>
-                                    setData({
-                                        ...data,
-                                        tupferOrangeEnabled:
-                                            !data.tupferOrangeEnabled,
-                                    })
+                                    updateDataFlag(
+                                        'tupferOrangeEnabled',
+                                        !dataFlag.tupferOrangeEnabled
+                                    )
                                 }
                             />
                             <Counter
                                 data={data}
-                                setData={setData}
+                                updateData={updateData}
+                                keyValue="tupferOrange"
                                 initialCount={0}
                                 name="tupfer-orange-counter"
                             />
@@ -136,17 +140,18 @@ export default function DataEquipment({
                         <Checkbox
                             name="duk"
                             label="Duk"
-                            checked={data.coversEnabled}
+                            checked={dataFlag.coversEnabled}
                             onClick={() =>
-                                setData({
-                                    ...data,
-                                    coversEnabled: !data.coversEnabled,
-                                })
+                                updateDataFlag(
+                                    'coversEnabled',
+                                    !dataFlag.coversEnabled
+                                )
                             }
                         />
                         <Counter
                             data={data}
-                            setData={setData}
+                            updateData={updateData}
+                            keyValue="covers"
                             initialCount={0}
                             name="duk-counter"
                         />

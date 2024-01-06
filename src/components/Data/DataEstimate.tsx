@@ -1,13 +1,11 @@
 import FormSection from '@/components/Form/FormSection'
 import Input from '@/components/Form/Input'
-import DataType from '@/types/data'
+import { DataTypes } from '@/types'
 
 export default function DataEstimate({
-    data,
-    setData,
+    updateData,
 }: {
-    data: DataType
-    setData: (open: DataType) => void
+    updateData: (key: keyof DataTypes, value: number) => void
 }) {
     return (
         <FormSection
@@ -21,7 +19,7 @@ export default function DataEstimate({
                     className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                     placeholder="ml"
                     onChange={(e) =>
-                        setData({ ...data, estimate: Number(e.target.value) })
+                        updateData('estimate', Number(e.target.value))
                     }
                     type="number"
                 />

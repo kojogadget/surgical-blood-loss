@@ -3,20 +3,22 @@ import Checkbox from '@/components/Form/Checkbox'
 import Fieldset from '@/components/Form/Fieldset'
 import Label from '@/components/Form/Label'
 import Input from '@/components/Form/Input'
-import DataType from '@/types/data'
+import { DataTypes, DataFlagTypes } from '@/types'
 
 export default function DataLiquid({
-    data,
-    setData,
+    updateData,
+    dataFlag,
+    updateDataFlag,
 }: {
-    data: DataType
-    setData: (open: DataType) => void
+    updateData: (key: keyof DataTypes, value: number) => void
+    dataFlag: DataFlagTypes
+    updateDataFlag: (key: keyof DataFlagTypes, value: boolean) => void
 }) {
     const handleWater = () => {
-        setData({ ...data, waterEnabled: !data.waterEnabled })
+        updateDataFlag('waterEnabled', !dataFlag.waterEnabled)
     }
     const handleNatrium = () => {
-        setData({ ...data, natcloEnabled: !data.natcloEnabled })
+        updateDataFlag('natcloEnabled', !dataFlag.natcloEnabled)
     }
 
     return (
@@ -28,7 +30,7 @@ export default function DataLiquid({
             <div className="col-span-full -mt-8">
                 <Fieldset label="">
                     <Checkbox name="vann" onClick={handleWater} label="Vann" />
-                    {data.waterEnabled && (
+                    {dataFlag.waterEnabled && (
                         <div className="mb-8 mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <div className="sm:col-span-3">
                                 <Label htmlFor="vann-start" label="Start" />
@@ -37,10 +39,10 @@ export default function DataLiquid({
                                     className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                                     placeholder="gram (g)"
                                     onChange={(e) =>
-                                        setData({
-                                            ...data,
-                                            waterStart: Number(e.target.value),
-                                        })
+                                        updateData(
+                                            'waterStart',
+                                            Number(e.target.value)
+                                        )
                                     }
                                     type="number"
                                 />
@@ -52,10 +54,10 @@ export default function DataLiquid({
                                     placeholder="gram (g)"
                                     className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                                     onChange={(e) =>
-                                        setData({
-                                            ...data,
-                                            waterEnd: Number(e.target.value),
-                                        })
+                                        updateData(
+                                            'waterEnd',
+                                            Number(e.target.value)
+                                        )
                                     }
                                     type="number"
                                 />
@@ -67,7 +69,7 @@ export default function DataLiquid({
                         onClick={handleNatrium}
                         label="Natriumclorid"
                     />
-                    {data.natcloEnabled && (
+                    {dataFlag.natcloEnabled && (
                         <div className="my-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <div className="sm:col-span-3">
                                 <Label htmlFor="vann-start" label="Start" />
@@ -76,10 +78,10 @@ export default function DataLiquid({
                                     placeholder="gram (g)"
                                     type="number"
                                     onChange={(e) =>
-                                        setData({
-                                            ...data,
-                                            natcloStart: Number(e.target.value),
-                                        })
+                                        updateData(
+                                            'natcloStart',
+                                            Number(e.target.value)
+                                        )
                                     }
                                     className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                                 />
@@ -91,10 +93,10 @@ export default function DataLiquid({
                                     className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                                     placeholder="gram (g)"
                                     onChange={(e) =>
-                                        setData({
-                                            ...data,
-                                            natcloEnd: Number(e.target.value),
-                                        })
+                                        updateData(
+                                            'natcloEnd',
+                                            Number(e.target.value)
+                                        )
                                     }
                                     type="number"
                                 />

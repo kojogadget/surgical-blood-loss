@@ -1,14 +1,12 @@
 import FormSection from '@/components/Form/FormSection'
 import Label from '@/components/Form/Label'
 import Input from '@/components/Form/Input'
-import DataType from '@/types/data'
+import { DataTypes } from '@/types'
 
 export default function DataSuction({
-    data,
-    setData,
+    updateData,
 }: {
-    data: DataType
-    setData: (open: DataType) => void
+    updateData: (key: keyof DataTypes, value: number) => void
 }) {
     return (
         <FormSection
@@ -23,10 +21,7 @@ export default function DataSuction({
                     className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                     placeholder="ml"
                     onChange={(e) =>
-                        setData({
-                            ...data,
-                            suctionAmniotic: Number(e.target.value),
-                        })
+                        updateData('suctionAmniotic', Number(e.target.value))
                     }
                     type="number"
                 />
@@ -38,10 +33,7 @@ export default function DataSuction({
                     className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                     placeholder="ml"
                     onChange={(e) =>
-                        setData({
-                            ...data,
-                            suctionTotal: Number(e.target.value),
-                        })
+                        updateData('suctionTotal', Number(e.target.value))
                     }
                     type="number"
                 />
