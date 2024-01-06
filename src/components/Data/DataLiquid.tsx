@@ -4,6 +4,7 @@ import Fieldset from '@/components/Form/Fieldset'
 import Label from '@/components/Form/Label'
 import Input from '@/components/Form/Input'
 import { DataTypes, DataFlagTypes } from '@/types'
+import { initDataFlag } from '@/data'
 
 export default function DataLiquid({
     updateData,
@@ -29,7 +30,12 @@ export default function DataLiquid({
         >
             <div className="col-span-full -mt-8">
                 <Fieldset label="">
-                    <Checkbox name="vann" onClick={handleWater} label="Vann" />
+                    <Checkbox
+                        name="vann"
+                        checked={dataFlag.waterEnabled}
+                        onChange={handleWater}
+                        label="Vann"
+                    />
                     {dataFlag.waterEnabled && (
                         <div className="mb-8 mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <div className="sm:col-span-3">
@@ -66,13 +72,14 @@ export default function DataLiquid({
                     )}
                     <Checkbox
                         name="natriumclorid"
-                        onClick={handleNatrium}
+                        checked={dataFlag.natcloEnabled}
+                        onChange={handleNatrium}
                         label="Natriumclorid"
                     />
                     {dataFlag.natcloEnabled && (
                         <div className="my-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <div className="sm:col-span-3">
-                                <Label htmlFor="vann-start" label="Start" />
+                                <Label htmlFor="natclo-start" label="Start" />
                                 <Input
                                     name="vann-start"
                                     placeholder="gram (g)"
@@ -89,7 +96,7 @@ export default function DataLiquid({
                             <div className="sm:col-span-3">
                                 <Label htmlFor="vann-end" label="Slutt" />
                                 <Input
-                                    name="vann-end"
+                                    name="natclo-end"
                                     className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                                     placeholder="gram (g)"
                                     onChange={(e) =>

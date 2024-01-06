@@ -30,7 +30,7 @@ export default function DataEquipment({
                                 name="kompress-brett"
                                 label="Kompressbrett"
                                 checked={dataFlag.compressBoardEnabled}
-                                onClick={() =>
+                                onChange={() =>
                                     updateDataFlag(
                                         'compressBoardEnabled',
                                         !dataFlag.compressBoardEnabled
@@ -50,7 +50,7 @@ export default function DataEquipment({
                                 name="kompress-blue"
                                 label="Kompress (Blå)"
                                 checked={dataFlag.compressBlueEnabled}
-                                onClick={() =>
+                                onChange={() =>
                                     updateDataFlag(
                                         'compressBlueEnabled',
                                         !dataFlag.compressBlueEnabled
@@ -70,7 +70,7 @@ export default function DataEquipment({
                                 name="kompress-orange"
                                 label="Kompress (Orange)"
                                 checked={dataFlag.compressOrangeEnabled}
-                                onClick={() =>
+                                onChange={() =>
                                     updateDataFlag(
                                         'compressOrangeEnabled',
                                         !dataFlag.compressOrangeEnabled
@@ -96,7 +96,7 @@ export default function DataEquipment({
                                 name="tupfer-blue"
                                 label="Tupfer (Blå)"
                                 checked={dataFlag.tupferBlueEnabled}
-                                onClick={() =>
+                                onChange={() =>
                                     updateDataFlag(
                                         'tupferBlueEnabled',
                                         !dataFlag.tupferBlueEnabled
@@ -116,7 +116,7 @@ export default function DataEquipment({
                                 name="tupfer-orange"
                                 label="Tupfer (Orange)"
                                 checked={dataFlag.tupferOrangeEnabled}
-                                onClick={() =>
+                                onChange={() =>
                                     updateDataFlag(
                                         'tupferOrangeEnabled',
                                         !dataFlag.tupferOrangeEnabled
@@ -141,7 +141,7 @@ export default function DataEquipment({
                             name="duk"
                             label="Duk"
                             checked={dataFlag.coversEnabled}
-                            onClick={() =>
+                            onChange={() =>
                                 updateDataFlag(
                                     'coversEnabled',
                                     !dataFlag.coversEnabled
