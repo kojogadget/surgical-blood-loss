@@ -1,6 +1,7 @@
 import { Fragment, useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { DataTypes, DataFlagTypes } from '@/types'
+import ModalContent from './ModalContent'
 
 export default function Modal({
     isOpen,
@@ -36,7 +37,7 @@ export default function Modal({
                 </Transition.Child>
 
                 <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-                    <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                    <div className="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
                         <Transition.Child
                             as={Fragment}
                             enter="ease-out duration-300"
@@ -47,86 +48,12 @@ export default function Modal({
                             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                         >
                             <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                                <div>
-                                    <div className="mt-3 text-center sm:mt-5">
-                                        <Dialog.Title
-                                            as="h3"
-                                            className="text-base font-semibold leading-6 text-gray-900"
-                                        >
-                                            Oppsummering
-                                        </Dialog.Title>
-                                        <div className="mt-2">
-                                            <p className="flex flex-col items-start text-sm text-gray-500">
-                                                {dataFlag.compressBoardEnabled && (
-                                                    <span>
-                                                        Kompressbrett:{' '}
-                                                        {data.compressBoard}
-                                                    </span>
-                                                )}
-                                                {dataFlag.compressBlueEnabled && (
-                                                    <span>
-                                                        Kompress (Blå):{' '}
-                                                        {data.compressBlue}
-                                                    </span>
-                                                )}
-                                                {dataFlag.compressOrangeEnabled && (
-                                                    <span>
-                                                        Kompress (Orange):{' '}
-                                                        {data.compressOrange}
-                                                    </span>
-                                                )}
-                                                {dataFlag.tupferBlueEnabled && (
-                                                    <span>
-                                                        Tupfer (Blå):{' '}
-                                                        {data.tupferBlue}
-                                                    </span>
-                                                )}
-                                                {dataFlag.tupferOrangeEnabled && (
-                                                    <span>
-                                                        Tupfer (Orange):{' '}
-                                                        {data.tupferOrange}
-                                                    </span>
-                                                )}
-                                                {dataFlag.coversEnabled && (
-                                                    <span>
-                                                        Duk: {data.covers}
-                                                    </span>
-                                                )}
-                                                <span>
-                                                    Forstervann:{' '}
-                                                    {data.suctionAmniotic}
-                                                </span>
-                                                <span>
-                                                    Total mengde sug:{' '}
-                                                    {data.suctionTotal}
-                                                </span>
-                                                <span>Annet: {data.other}</span>
-                                                <span>
-                                                    Visuelt estimat:{' '}
-                                                    {data.estimate}
-                                                </span>
-                                                <span>Vekt: {data.weight}</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
-                                    <button
-                                        type="button"
-                                        className="inline-flex w-full justify-center rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primaryDark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primaryDark sm:col-start-2"
-                                        onClick={() => setIsOpen(false)}
-                                    >
-                                        Bekreft
-                                    </button>
-                                    <button
-                                        type="button"
-                                        className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:col-start-1 sm:mt-0"
-                                        onClick={() => setIsOpen(false)}
-                                        ref={cancelButtonRef}
-                                    >
-                                        Avbryt
-                                    </button>
-                                </div>
+                                <ModalContent
+                                    cancelButtonRef={cancelButtonRef}
+                                    setIsOpen={setIsOpen}
+                                    data={data}
+                                    dataFlag={dataFlag}
+                                />
                             </Dialog.Panel>
                         </Transition.Child>
                     </div>
