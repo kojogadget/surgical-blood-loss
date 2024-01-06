@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import ButtonPrimary from '@/components/Buttons/ButtonPrimary'
 import ButtonTransparent from '@/components/Buttons/ButtonTransparent'
 import DataEquipment from './Data/DataEquipment'
@@ -10,8 +10,7 @@ import DataEstimate from './Data/DataEstimate'
 import DataWeight from './Data/DataWeight'
 import Modal from './Modal'
 import { DataTypes, DataFlagTypes } from '@/types'
-import { initData } from '@/data/initData'
-import { initDataFlag } from '@/data/initDataFlag'
+import { initData, initDataFlag } from '@/data'
 
 export default function DataForm() {
     const [openModal, setOpenModal] = useState<boolean>(false)
@@ -25,10 +24,6 @@ export default function DataForm() {
     const updateDataFlag = (key: keyof DataFlagTypes, value: boolean): void => {
         setDataFlag((prev) => ({ ...prev, [key]: value }))
     }
-
-    useEffect(() => {
-        console.log(data)
-    }, [openModal])
 
     return (
         <form>
