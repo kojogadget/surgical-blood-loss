@@ -13,7 +13,5 @@ export type DataTypes = {
     suctionTotal: number
     other: number
     estimate: number
-    estimate: number
-    weight: number
     weight: number
 }
