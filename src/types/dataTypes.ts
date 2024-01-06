@@ -12,7 +12,6 @@ export type DataTypes = {
     suctionAmniotic: number
     suctionTotal: number
     other: number
-    other: number
     estimate: number
     estimate: number
     weight: number
