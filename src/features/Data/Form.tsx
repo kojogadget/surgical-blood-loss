@@ -9,25 +9,16 @@ import Other from '@/features/Data/components/Other'
 import Estimate from '@/features/Data/components/Estimate'
 import Weight from '@/features/Data/components/Weight'
 import Modal from '@/features/Modal/Modal'
-import { initData, initDataFlag } from '@/data'
-import {
-    DataProvider,
-    useDataContext,
-} from '@/features/Data/context/DataContext'
-import {
-    DataFlagProvider,
-    useDataFlagContext,
-} from '@/features/Data/context/DataFlagContext'
+import { DataProvider } from '@/features/Data/context/DataContext'
+import { DataFlagProvider } from '@/features/Data/context/DataFlagContext'
 
 export default function Form() {
     const [openModal, setOpenModal] = useState<boolean>(false)
-    const { setData } = useDataContext()
-    const { setDataFlag } = useDataFlagContext()
 
     return (
         <DataProvider>
             <DataFlagProvider>
-                <form>
+                <form id="form">
                     <div className="space-y-12">
                         <Equipment />
                         <Liquid />
@@ -38,13 +29,7 @@ export default function Form() {
                     </div>
 
                     <div className="mt-6 flex items-center justify-end gap-x-6">
-                        <ButtonTransparent
-                            onClick={() => {
-                                setData(initData)
-                                setDataFlag(initDataFlag)
-                            }}
-                            type="button"
-                        >
+                        <ButtonTransparent type="reset">
                             Cancel
                         </ButtonTransparent>
                         <ButtonPrimary

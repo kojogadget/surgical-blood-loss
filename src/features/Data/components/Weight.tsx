@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import FormSection from '@/components/Form/FormSection'
 import Input from '@/components/Form/Input'
 import { useDataContext } from '@/features/Data/context/DataContext'
@@ -13,12 +12,6 @@ export default function Weight() {
         })
     }
 
-    const [weight, setWeight] = useState<number>(data.weight)
-
-    useEffect(() => {
-        updateData('weight', weight)
-    }, [weight])
-
     return (
         <FormSection
             title="Vekt"
@@ -30,8 +23,9 @@ export default function Weight() {
                     name="vekt"
                     className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                     placeholder="gram (g)"
-                    value={weight}
-                    onChange={(e) => setWeight(Number(e.target.value))}
+                    onChange={(e) =>
+                        updateData('weight', Number(e.target.value))
+                    }
                     type="number"
                 />
             </div>
