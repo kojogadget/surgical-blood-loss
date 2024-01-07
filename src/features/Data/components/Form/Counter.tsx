@@ -9,10 +9,12 @@ export default function Counter({
     keyValue,
     keyFlag,
     name,
+    label,
 }: {
     keyValue: keyof DataTypes
     keyFlag: keyof DataFlagTypes
     name: string
+    label: string
 }) {
     const { data, setData } = useDataContext()
     const { dataFlag, setDataFlag } = useDataFlagContext()
@@ -48,8 +50,8 @@ export default function Counter({
     return (
         <>
             <Checkbox
-                name="kompress-brett"
-                label="Kompressbrett"
+                name={name}
+                label={label}
                 checked={dataFlag[keyFlag] || data[keyValue] > 0}
                 onChange={() => {
                     if (dataFlag[keyFlag]) {
