@@ -1,12 +1,17 @@
 import FormSection from '@/components/Form/FormSection'
 import Input from '@/components/Form/Input'
-import { DataTypes } from '@/types'
+import { useDataContext } from '@/features/Data/context/DataContext'
 
-export default function DataEstimate({
-    updateData,
-}: {
-    updateData: (key: keyof DataTypes, value: number) => void
-}) {
+export default function Estimate() {
+    const { data, setData } = useDataContext()
+
+    const updateData = (key: string, value: number) => {
+        setData({
+            ...data,
+            [key]: value,
+        })
+    }
+
     return (
         <FormSection
             title="Visuelt estimat"

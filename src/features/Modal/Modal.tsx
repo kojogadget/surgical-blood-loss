@@ -1,18 +1,13 @@
 import { Fragment, useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { DataTypes, DataFlagTypes } from '@/types'
-import ModalContent from './ModalContent'
+import Content from '@/features/Modal/components/Content'
 
 export default function Modal({
     isOpen,
     setIsOpen,
-    data,
-    dataFlag,
 }: {
     isOpen: boolean
     setIsOpen: (open: boolean) => void
-    data: DataTypes
-    dataFlag: DataFlagTypes
 }) {
     const cancelButtonRef = useRef(null)
 
@@ -48,11 +43,9 @@ export default function Modal({
                             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                         >
                             <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                                <ModalContent
+                                <Content
                                     cancelButtonRef={cancelButtonRef}
                                     setIsOpen={setIsOpen}
-                                    data={data}
-                                    dataFlag={dataFlag}
                                 />
                             </Dialog.Panel>
                         </Transition.Child>

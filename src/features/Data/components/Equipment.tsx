@@ -3,19 +3,27 @@ import Fieldset from '@/components/Form/Fieldset'
 import Checkbox from '@/components/Form/Checkbox'
 import Counter from '@/components/Form/Counter'
 import CounterWrapper from '@/components/Form/CounterWrapper'
-import { DataTypes, DataFlagTypes } from '@/types'
+import { useDataContext } from '@/features/Data/context/DataContext'
+import { useDataFlagContext } from '@/features/Data/context/DataFlagContext'
 
-export default function DataEquipment({
-    data,
-    updateData,
-    dataFlag,
-    updateDataFlag,
-}: {
-    data: DataTypes
-    updateData: (key: keyof DataTypes, value: number) => void
-    dataFlag: DataFlagTypes
-    updateDataFlag: (key: keyof DataFlagTypes, value: boolean) => void
-}) {
+export default function Equipment() {
+    const { data, setData } = useDataContext()
+    const { dataFlag, setDataFlag } = useDataFlagContext()
+
+    const updateData = (key: string, value: number) => {
+        setData({
+            ...data,
+            [key]: value,
+        })
+    }
+
+    const updateDataFlag = (key: string, value: boolean) => {
+        setDataFlag({
+            ...dataFlag,
+            [key]: value,
+        })
+    }
+
     return (
         <FormSection
             title="Utstyr"

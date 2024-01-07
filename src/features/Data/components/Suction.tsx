@@ -1,13 +1,18 @@
 import FormSection from '@/components/Form/FormSection'
 import Label from '@/components/Form/Label'
 import Input from '@/components/Form/Input'
-import { DataTypes } from '@/types'
+import { useDataContext } from '@/features/Data/context/DataContext'
 
-export default function DataSuction({
-    updateData,
-}: {
-    updateData: (key: keyof DataTypes, value: number) => void
-}) {
+export default function Suction() {
+    const { data, setData } = useDataContext()
+
+    const updateData = (key: string, value: number) => {
+        setData({
+            ...data,
+            [key]: value,
+        })
+    }
+
     return (
         <FormSection
             title="Sug"

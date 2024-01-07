@@ -3,18 +3,27 @@ import Checkbox from '@/components/Form/Checkbox'
 import Fieldset from '@/components/Form/Fieldset'
 import Label from '@/components/Form/Label'
 import Input from '@/components/Form/Input'
-import { DataTypes, DataFlagTypes } from '@/types'
-import { initDataFlag } from '@/data'
+import { useDataContext } from '@/features/Data/context/DataContext'
+import { useDataFlagContext } from '@/features/Data/context/DataFlagContext'
 
-export default function DataLiquid({
-    updateData,
-    dataFlag,
-    updateDataFlag,
-}: {
-    updateData: (key: keyof DataTypes, value: number) => void
-    dataFlag: DataFlagTypes
-    updateDataFlag: (key: keyof DataFlagTypes, value: boolean) => void
-}) {
+export default function Liquid() {
+    const { data, setData } = useDataContext()
+    const { dataFlag, setDataFlag } = useDataFlagContext()
+
+    const updateData = (key: string, value: number) => {
+        setData({
+            ...data,
+            [key]: value,
+        })
+    }
+
+    const updateDataFlag = (key: string, value: boolean) => {
+        setDataFlag({
+            ...dataFlag,
+            [key]: value,
+        })
+    }
+
     const handleWater = () => {
         updateDataFlag('waterEnabled', !dataFlag.waterEnabled)
     }
