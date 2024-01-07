@@ -18,6 +18,7 @@ export default function Equipment() {
                                 keyValue="compressBoard"
                                 keyFlag="compressBoardEnabled"
                                 name="compress-board"
+                                label="Kompressbrett"
                             />
                         </CounterWrapper>
                         <CounterWrapper>
@@ -25,6 +26,7 @@ export default function Equipment() {
                                 keyValue="compressBlue"
                                 keyFlag="compressBlueEnabled"
                                 name="compress-blue"
+                                label="Kompress (Blå)"
                             />
                         </CounterWrapper>
                         <CounterWrapper>
@@ -32,6 +34,7 @@ export default function Equipment() {
                                 keyValue="compressOrange"
                                 keyFlag="compressOrangeEnabled"
                                 name="compress-orange"
+                                label="Kompress (Oransje)"
                             />
                         </CounterWrapper>
                     </Fieldset>
@@ -45,6 +48,7 @@ export default function Equipment() {
                                 keyValue="tupferBlue"
                                 keyFlag="tupferBlueEnabled"
                                 name="tupfer-blue"
+                                label="Tupfer (Blå)"
                             />
                         </CounterWrapper>
                         <CounterWrapper>
@@ -52,6 +56,7 @@ export default function Equipment() {
                                 keyValue="tupferOrange"
                                 keyFlag="tupferOrangeEnabled"
                                 name="tupfer-orange"
+                                label="Tupfer (Oransje)"
                             />
                         </CounterWrapper>
                     </Fieldset>
@@ -64,6 +69,7 @@ export default function Equipment() {
                             keyValue="covers"
                             keyFlag="coversEnabled"
                             name="covers"
+                            label="Duk"
                         />
                     </CounterWrapper>
                 </Fieldset>
