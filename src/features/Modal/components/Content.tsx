@@ -25,8 +25,8 @@ export default function Content({
                     <div className="mt-2">
                         <table className="min-w-full">
                             <colgroup>
-                                <col className="w-full sm:w-1/2" />
-                                <col className="sm:w-1/2" />
+                                <col className="w-1/2" />
+                                <col className="w-1/2" />
                             </colgroup>
                             <tbody className="font-medium text-gray-900">
                                 {dataFlag.compressBoardEnabled && (
