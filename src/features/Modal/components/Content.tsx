@@ -94,7 +94,8 @@ export default function Content({
                                         Forstervann:
                                     </td>
                                     <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">
-                                        {data.suctionAmniotic || 'Ikke oppgitt'}
+                                        {data.suctionAmniotic !== 0 ||
+                                            'Ikke oppgitt'}
                                     </td>
                                 </tr>
                                 <tr className="border-b border-gray-200">
@@ -102,7 +103,8 @@ export default function Content({
                                         Total mengde sug:
                                     </td>
                                     <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">
-                                        {data.suctionTotal || 'Ikke oppgitt'}
+                                        {data.suctionTotal !== 0 ||
+                                            'Ikke oppgitt'}
                                     </td>
                                 </tr>
                                 <tr className="border-b border-gray-200">
@@ -110,7 +112,7 @@ export default function Content({
                                         Annet:
                                     </td>
                                     <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">
-                                        {data.other || 'Ikke oppgitt'}
+                                        {data.other !== 0 || 'Ikke oppgitt'}
                                     </td>
                                 </tr>
                                 <tr className="border-b border-gray-200">
@@ -118,7 +120,7 @@ export default function Content({
                                         Visuelt estimat:
                                     </td>
                                     <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">
-                                        {data.estimate || 'Ikke oppgitt'}
+                                        {data.estimate !== 0 || 'Ikke oppgitt'}
                                     </td>
                                 </tr>
                                 <tr className="border-b border-gray-200">
@@ -126,7 +128,7 @@ export default function Content({
                                         Vekt:
                                     </td>
                                     <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">
-                                        {data.weight || 'Ikke oppgitt'}
+                                        {data.weight !== 0 || 'Ikke oppgitt'}
                                     </td>
                                 </tr>
                             </tbody>
