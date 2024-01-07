@@ -2,8 +2,8 @@
 import { useEffect } from 'react'
 import { useNavpageContext } from '@/features/NavBar/hooks/useNavpageContext'
 import Nav from '@/features/NavBar/NavBar'
-import DataForm from '@/components/DataForm'
 import SectionHeader from '@/components/SectionHeader'
+import Form from '@/features/Data/Form'
 
 export default function SkjermPage() {
     const { setNavPage } = useNavpageContext()
@@ -15,7 +15,7 @@ export default function SkjermPage() {
     return (
         <Nav>
             <SectionHeader>Skjema</SectionHeader>
-            <DataForm />
+            <Form />
         </Nav>
     )
 }

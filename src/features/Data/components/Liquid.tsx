@@ -1,20 +1,34 @@
-'use client'
-import { useState } from 'react'
 import FormSection from '@/components/Form/FormSection'
 import Checkbox from '@/components/Form/Checkbox'
 import Fieldset from '@/components/Form/Fieldset'
 import Label from '@/components/Form/Label'
 import Input from '@/components/Form/Input'
+import { useDataContext } from '@/features/Data/context/DataContext'
+import { useDataFlagContext } from '@/features/Data/context/DataFlagContext'
 
-export default function DataLiquid() {
-    const [showWater, setShowWater] = useState(false)
-    const [showNatrium, setShowNatrium] = useState(false)
+export default function Liquid() {
+    const { data, setData } = useDataContext()
+    const { dataFlag, setDataFlag } = useDataFlagContext()
+
+    const updateData = (key: string, value: number) => {
+        setData({
+            ...data,
+            [key]: value,
+        })
+    }
+
+    const updateDataFlag = (key: string, value: boolean) => {
+        setDataFlag({
+            ...dataFlag,
+            [key]: value,
+        })
+    }
 
     const handleWater = () => {
-        setShowWater(!showWater)
+        updateDataFlag('waterEnabled', !dataFlag.waterEnabled)
     }
     const handleNatrium = () => {
-        setShowNatrium(!showNatrium)
+        updateDataFlag('natcloEnabled', !dataFlag.natcloEnabled)
     }
 
     return (
@@ -25,8 +39,13 @@ export default function DataLiquid() {
         >
             <div className="col-span-full -mt-8">
                 <Fieldset label="">
-                    <Checkbox name="vann" onClick={handleWater} label="Vann" />
-                    {showWater && (
+                    <Checkbox
+                        name="vann"
+                        checked={dataFlag.waterEnabled}
+                        onChange={handleWater}
+                        label="Vann"
+                    />
+                    {dataFlag.waterEnabled && (
                         <div className="mb-8 mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <div className="sm:col-span-3">
                                 <Label htmlFor="vann-start" label="Start" />
@@ -34,15 +53,27 @@ export default function DataLiquid() {
                                     name="vann-start"
                                     className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                                     placeholder="gram (g)"
+                                    onChange={(e) =>
+                                        updateData(
+                                            'waterStart',
+                                            Number(e.target.value)
+                                        )
+                                    }
                                     type="number"
                                 />
                             </div>
                             <div className="sm:col-span-3">
-                                <Label htmlFor="vann-end" label="End" />
+                                <Label htmlFor="vann-end" label="Slutt" />
                                 <Input
                                     name="vann-end"
                                     placeholder="gram (g)"
                                     className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                                    onChange={(e) =>
+                                        updateData(
+                                            'waterEnd',
+                                            Number(e.target.value)
+                                        )
+                                    }
                                     type="number"
                                 />
                             </div>
@@ -50,26 +81,39 @@ export default function DataLiquid() {
                     )}
                     <Checkbox
                         name="natriumclorid"
-                        onClick={handleNatrium}
+                        checked={dataFlag.natcloEnabled}
+                        onChange={handleNatrium}
                         label="Natriumclorid"
                     />
-                    {showNatrium && (
+                    {dataFlag.natcloEnabled && (
                         <div className="my-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <div className="sm:col-span-3">
-                                <Label htmlFor="vann-start" label="Start" />
+                                <Label htmlFor="natclo-start" label="Start" />
                                 <Input
                                     name="vann-start"
                                     placeholder="gram (g)"
                                     type="number"
+                                    onChange={(e) =>
+                                        updateData(
+                                            'natcloStart',
+                                            Number(e.target.value)
+                                        )
+                                    }
                                     className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                                 />
                             </div>
                             <div className="sm:col-span-3">
-                                <Label htmlFor="vann-end" label="End" />
+                                <Label htmlFor="vann-end" label="Slutt" />
                                 <Input
-                                    name="vann-end"
+                                    name="natclo-end"
                                     className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                                     placeholder="gram (g)"
+                                    onChange={(e) =>
+                                        updateData(
+                                            'natcloEnd',
+                                            Number(e.target.value)
+                                        )
+                                    }
                                     type="number"
                                 />
                             </div>

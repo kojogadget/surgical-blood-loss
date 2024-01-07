@@ -18,7 +18,8 @@ export default function Checkbox({
                     name={name}
                     id={name}
                     type="checkbox"
-                    className="focus:ring-indigo-600 focus:ring-offset-gray-900 h-4 w-4 rounded border-white bg-white/95 text-primary"
+                    defaultChecked={props.defaultChecked}
+                    className="h-4 w-4 rounded border-white bg-white/95 text-primary focus:ring-indigo-600 focus:ring-offset-gray-900"
                 />
             </div>
             <div className="text-sm leading-6">

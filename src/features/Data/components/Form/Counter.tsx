@@ -1,26 +1,43 @@
 import { PlusIcon, MinusIcon } from '@heroicons/react/24/solid'
-import Input from './Input'
-import { DataTypes } from '@/types'
+import Input from '@/components/Form/Input'
+import Checkbox from '@/components/Form/Checkbox'
+import { useDataContext } from '@/features/Data/context/DataContext'
+import { useDataFlagContext } from '@/features/Data/context/DataFlagContext'
+import { DataTypes, DataFlagTypes } from '@/types'
 
 export default function Counter({
-    name,
-    data,
-    updateData,
     keyValue,
+    keyFlag,
+    name,
 }: {
-    name: string
-    initialCount: number
-    data: DataTypes
-    updateData: (key: keyof DataTypes, value: number) => void
     keyValue: keyof DataTypes
+    keyFlag: keyof DataFlagTypes
+    name: string
 }) {
+    const { data, setData } = useDataContext()
+    const { dataFlag, setDataFlag } = useDataFlagContext()
+
+    const updateData = (key: string, value: number) => {
+        setData({
+            ...data,
+            [key]: value,
+        })
+    }
+
+    const updateDataFlag = (key: string, value: boolean) => {
+        setDataFlag({
+            ...dataFlag,
+            [key]: value,
+        })
+    }
+
     const handleIncrement = () => {
-        if (typeof data[keyValue] === 'number') {
-            updateData(keyValue, data[keyValue] + 1)
-        } else null
+        if (!dataFlag[keyFlag]) updateDataFlag(keyFlag, true)
+        updateData(keyValue, data[keyValue] + 1)
     }
     const handleDecrement = () => {
         if (data[keyValue] > 0) {
+            if (data[keyValue] === 1) updateDataFlag(keyFlag, false)
             updateData(keyValue, data[keyValue] - 1)
         }
     }
@@ -30,6 +47,17 @@ export default function Counter({
 
     return (
         <>
+            <Checkbox
+                name="kompress-brett"
+                label="Kompressbrett"
+                checked={dataFlag[keyFlag] || data[keyValue] > 0}
+                onChange={() => {
+                    if (dataFlag[keyFlag]) {
+                        updateData(keyValue, 0)
+                    }
+                    updateDataFlag(keyFlag, !dataFlag[keyFlag])
+                }}
+            />
             <div className="relative flex max-w-32 items-center">
                 <button
                     type="button"

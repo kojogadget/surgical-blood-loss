@@ -1,8 +1,18 @@
 import FormSection from '@/components/Form/FormSection'
 import Label from '@/components/Form/Label'
 import Input from '@/components/Form/Input'
+import { useDataContext } from '@/features/Data/context/DataContext'
 
-export default function DataSuction() {
+export default function Suction() {
+    const { data, setData } = useDataContext()
+
+    const updateData = (key: string, value: number) => {
+        setData({
+            ...data,
+            [key]: value,
+        })
+    }
+
     return (
         <FormSection
             title="Sug"
@@ -15,6 +25,9 @@ export default function DataSuction() {
                     name="fostervann"
                     className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                     placeholder="ml"
+                    onChange={(e) =>
+                        updateData('suctionAmniotic', Number(e.target.value))
+                    }
                     type="number"
                 />
             </div>
@@ -24,6 +37,9 @@ export default function DataSuction() {
                     name="total-sug"
                     className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                     placeholder="ml"
+                    onChange={(e) =>
+                        updateData('suctionTotal', Number(e.target.value))
+                    }
                     type="number"
                 />
             </div>

@@ -1,10 +1,9 @@
 import FormSection from '@/components/Form/FormSection'
 import Fieldset from '@/components/Form/Fieldset'
-import Checkbox from '@/components/Form/Checkbox'
-import Counter from '../Form/Counter'
-import CounterWrapper from '../Form/CounterWrapper'
+import Counter from '@/features/Data/components/Form/Counter'
+import CounterWrapper from '@/components/Form/CounterWrapper'
 
-export default function DataEquipment() {
+export default function Equipment() {
     return (
         <FormSection
             title="Utstyr"
@@ -15,33 +14,24 @@ export default function DataEquipment() {
                 <div className="mb-8">
                     <Fieldset label="Kompress">
                         <CounterWrapper>
-                            <Checkbox
-                                name="kompress-brett"
-                                label="Kompressbrett"
-                            />
                             <Counter
-                                initialCount={0}
-                                name="kompress-brett-counter"
+                                keyValue="compressBoard"
+                                keyFlag="compressBoardEnabled"
+                                name="compress-board"
                             />
                         </CounterWrapper>
                         <CounterWrapper>
-                            <Checkbox
-                                name="kompress-blue"
-                                label="Kompress (Blå)"
-                            />
                             <Counter
-                                initialCount={0}
-                                name="kompress-blue-counter"
+                                keyValue="compressBlue"
+                                keyFlag="compressBlueEnabled"
+                                name="compress-blue"
                             />
                         </CounterWrapper>
                         <CounterWrapper>
-                            <Checkbox
-                                name="kompress-orange"
-                                label="Kompress (Orange)"
-                            />
                             <Counter
-                                initialCount={0}
-                                name="kompress-orange-counter"
+                                keyValue="compressOrange"
+                                keyFlag="compressOrangeEnabled"
+                                name="compress-orange"
                             />
                         </CounterWrapper>
                     </Fieldset>
@@ -51,20 +41,17 @@ export default function DataEquipment() {
                 <div className="mb-8">
                     <Fieldset label="Tupfer">
                         <CounterWrapper>
-                            <Checkbox name="tupfer-blue" label="Tupfer (Blå)" />
                             <Counter
-                                initialCount={0}
-                                name="tupfer-blue-counter"
+                                keyValue="tupferBlue"
+                                keyFlag="tupferBlueEnabled"
+                                name="tupfer-blue"
                             />
                         </CounterWrapper>
                         <CounterWrapper>
-                            <Checkbox
-                                name="tupfer-orange"
-                                label="Tupfer (Orange)"
-                            />
                             <Counter
-                                initialCount={0}
-                                name="tupfer-orange-counter"
+                                keyValue="tupferOrange"
+                                keyFlag="tupferOrangeEnabled"
+                                name="tupfer-orange"
                             />
                         </CounterWrapper>
                     </Fieldset>
@@ -73,8 +60,11 @@ export default function DataEquipment() {
             <div className="sm:col-span-3">
                 <Fieldset label="Annet">
                     <CounterWrapper>
-                        <Checkbox name="duk" label="Duk" />
-                        <Counter initialCount={0} name="duk-counter" />
+                        <Counter
+                            keyValue="covers"
+                            keyFlag="coversEnabled"
+                            name="covers"
+                        />
                     </CounterWrapper>
                 </Fieldset>
             </div>
