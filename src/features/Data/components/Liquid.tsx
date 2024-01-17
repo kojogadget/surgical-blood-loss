@@ -46,7 +46,7 @@ export default function Liquid() {
                         name="vann"
                         checked={dataFlag.waterEnabled}
                         onChange={handleWater}
-                        label="Vann"
+                        label="Sterilt vann"
                     />
                     {dataFlag.waterEnabled && (
                         <div className="mb-8 mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -83,17 +83,17 @@ export default function Liquid() {
                         </div>
                     )}
                     <Checkbox
-                        name="natriumclorid"
+                        name="nacl"
                         checked={dataFlag.natcloEnabled}
                         onChange={handleNatrium}
-                        label="Natriumclorid"
+                        label="NaCl 0,9%"
                     />
                     {dataFlag.natcloEnabled && (
                         <div className="my-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <div className="sm:col-span-3">
                                 <Label htmlFor="natclo-start" label="Start" />
                                 <Input
-                                    name="vann-start"
+                                    name="natclo-start"
                                     placeholder="gram (g)"
                                     type="number"
                                     onChange={(e) =>
@@ -106,7 +106,7 @@ export default function Liquid() {
                                 />
                             </div>
                             <div className="sm:col-span-3">
-                                <Label htmlFor="vann-end" label="Slutt" />
+                                <Label htmlFor="natclo-end" label="Slutt" />
                                 <Input
                                     name="natclo-end"
                                     className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
