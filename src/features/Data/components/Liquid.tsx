@@ -30,6 +30,9 @@ export default function Liquid() {
     const handleNatrium = () => {
         updateDataFlag('natcloEnabled', !dataFlag.natcloEnabled)
     }
+    const handleRingerAcetat = () => {
+        updateDataFlag('ringerAcetatEnabled', !dataFlag.ringerAcetatEnabled)
+    }
 
     return (
         <FormSection
@@ -111,6 +114,52 @@ export default function Liquid() {
                                     onChange={(e) =>
                                         updateData(
                                             'natcloEnd',
+                                            Number(e.target.value)
+                                        )
+                                    }
+                                    type="number"
+                                />
+                            </div>
+                        </div>
+                    )}
+                    <Checkbox
+                        name="ringer-acetat"
+                        checked={dataFlag.ringerAcetatEnabled}
+                        onChange={handleRingerAcetat}
+                        label="Ringer-Acetat"
+                    />
+                    {dataFlag.ringerAcetatEnabled && (
+                        <div className="mb-8 mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                            <div className="sm:col-span-3">
+                                <Label
+                                    htmlFor="ringer-acetat-start"
+                                    label="Start"
+                                />
+                                <Input
+                                    name="ringer-acetat-start"
+                                    className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                                    placeholder="gram (g)"
+                                    onChange={(e) =>
+                                        updateData(
+                                            'ringerAcetatStart',
+                                            Number(e.target.value)
+                                        )
+                                    }
+                                    type="number"
+                                />
+                            </div>
+                            <div className="sm:col-span-3">
+                                <Label
+                                    htmlFor="ringer-acetat-end"
+                                    label="Slutt"
+                                />
+                                <Input
+                                    name="ringer-acetat-end"
+                                    placeholder="gram (g)"
+                                    className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                                    onChange={(e) =>
+                                        updateData(
+                                            'ringerAcetatEnd',
                                             Number(e.target.value)
                                         )
                                     }
