@@ -19,4 +19,5 @@ export const initData: DataTypes = {
     other: 0,
     estimate: 0,
     weight: 0,
+    bloodLoss: 0,
 }

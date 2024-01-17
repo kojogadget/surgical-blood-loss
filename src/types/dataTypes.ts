@@ -17,4 +17,5 @@ export type DataTypes = {
     other: number
     estimate: number
     weight: number
+    bloodLoss: number
 }
