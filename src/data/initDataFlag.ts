@@ -9,4 +9,6 @@ export const initDataFlag: DataFlagTypes = {
     coversEnabled: false,
     waterEnabled: false,
     natcloEnabled: false,
+    ringerAcetatEnabled: false,
+    absorbingMatEnabled: false,
 }

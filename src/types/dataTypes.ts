@@ -9,8 +9,11 @@ export type DataTypes = {
     waterEnd: number
     natcloStart: number
     natcloEnd: number
+    ringerAcetatStart: number
+    ringerAcetatEnd: number
     suctionAmniotic: number
     suctionTotal: number
+    absorbingMat: number
     other: number
     estimate: number
     weight: number
