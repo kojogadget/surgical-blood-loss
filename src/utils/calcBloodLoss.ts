@@ -1,4 +1,5 @@
 import { equipmentWeight } from '@/data'
+import { DataTypes } from '@/types'
 
 export function calcBloodLoss(data: DataTypes): number {
     let bloodLoss = data.weight
