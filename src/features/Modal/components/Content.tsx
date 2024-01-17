@@ -131,6 +131,14 @@ export default function Content({
                                         {data.weight !== 0 || 'Ikke oppgitt'}
                                     </td>
                                 </tr>
+                                <tr className="border-b border-gray-200">
+                                    <td className="max-w-0 py-5 pl-4 pr-3 text-left text-sm sm:pl-0">
+                                        Blodtap:
+                                    </td>
+                                    <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">
+                                        {data.bloodLoss !== 0 || 'Ikke oppgitt'}
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
