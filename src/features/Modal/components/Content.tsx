@@ -94,8 +94,9 @@ export default function Content({
                                         Forstervann:
                                     </td>
                                     <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">
-                                        {data.suctionAmniotic !== 0 ||
-                                            'Ikke oppgitt'}
+                                        {data.suctionAmniotic !== 0
+                                            ? data.suctionAmniotic
+                                            : 'Ikke oppgitt'}
                                     </td>
                                 </tr>
                                 <tr className="border-b border-gray-200">
@@ -103,8 +104,9 @@ export default function Content({
                                         Total mengde sug:
                                     </td>
                                     <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">
-                                        {data.suctionTotal !== 0 ||
-                                            'Ikke oppgitt'}
+                                        {data.suctionTotal !== 0
+                                            ? data.suctionTotal
+                                            : 'Ikke oppgitt'}
                                     </td>
                                 </tr>
                                 <tr className="border-b border-gray-200">
@@ -112,7 +114,9 @@ export default function Content({
                                         Annet:
                                     </td>
                                     <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">
-                                        {data.other !== 0 || 'Ikke oppgitt'}
+                                        {data.other !== 0
+                                            ? data.other
+                                            : 'Ikke oppgitt'}
                                     </td>
                                 </tr>
                                 <tr className="border-b border-gray-200">
@@ -120,7 +124,9 @@ export default function Content({
                                         Visuelt estimat:
                                     </td>
                                     <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">
-                                        {data.estimate !== 0 || 'Ikke oppgitt'}
+                                        {data.estimate !== 0
+                                            ? data.estimate
+                                            : 'Ikke oppgitt'}
                                     </td>
                                 </tr>
                                 <tr className="border-b border-gray-200">
@@ -128,7 +134,9 @@ export default function Content({
                                         Vekt:
                                     </td>
                                     <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">
-                                        {data.weight !== 0 || 'Ikke oppgitt'}
+                                        {data.weight !== 0
+                                            ? data.weight
+                                            : 'Ikke oppgitt'}
                                     </td>
                                 </tr>
                                 <tr className="border-b border-gray-200">
@@ -136,7 +144,9 @@ export default function Content({
                                         Blodtap:
                                     </td>
                                     <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">
-                                        {data.bloodLoss !== 0 || 'Ikke oppgitt'}
+                                        {data.bloodLoss !== 0
+                                            ? data.bloodLoss
+                                            : 'Ikke oppgitt'}
                                     </td>
                                 </tr>
                             </tbody>
