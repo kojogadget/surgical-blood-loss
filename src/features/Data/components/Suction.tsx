@@ -4,14 +4,7 @@ import Input from '@/components/Form/Input'
 import { useDataContext } from '@/features/Data/context/DataContext'
 
 export default function Suction() {
-    const { data, setData } = useDataContext()
-
-    const updateData = (key: string, value: number) => {
-        setData({
-            ...data,
-            [key]: value,
-        })
-    }
+    const { updateData } = useDataContext()
 
     return (
         <FormSection

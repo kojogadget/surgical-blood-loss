@@ -7,4 +7,6 @@ export type DataFlagTypes = {
     coversEnabled: boolean
     waterEnabled: boolean
     natcloEnabled: boolean
+    ringerAcetatEnabled: boolean
+    absorbingMatEnabled: boolean
 }

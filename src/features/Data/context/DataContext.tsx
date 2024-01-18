@@ -2,10 +2,11 @@
 import React, { createContext, useContext, useState } from 'react'
 import { DataTypes } from '@/types'
 import { initData } from '@/data'
+import { calcBloodLoss } from '@/utils/calcBloodLoss'
 
 type DataContextType = {
     data: DataTypes
-    setData: (open: DataTypes) => void
+    updateData: (key: keyof DataTypes, value: number) => void
 }
 
 type DataProviderProps = {
@@ -14,14 +15,22 @@ type DataProviderProps = {
 
 const DataContext = createContext<DataContextType>({
     data: initData,
-    setData: () => {},
+    updateData: () => {},
 })
 
 export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
     const [data, setData] = useState(initData)
 
+    const updateData = (key: keyof DataTypes, value: number) => {
+        setData({
+            ...data,
+            [key]: value,
+            bloodLoss: calcBloodLoss({ ...data, [key]: value }),
+        })
+    }
+
     return (
-        <DataContext.Provider value={{ data, setData }}>
+        <DataContext.Provider value={{ data, updateData }}>
             {children}
         </DataContext.Provider>
     )

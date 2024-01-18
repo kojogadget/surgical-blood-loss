@@ -5,7 +5,7 @@ import { initDataFlag } from '@/data'
 
 type DataFlagContextType = {
     dataFlag: DataFlagTypes
-    setDataFlag: (open: DataFlagTypes) => void
+    updateDataFlag: (key: string, value: boolean) => void
 }
 
 type DataFlagProviderProps = {
@@ -14,7 +14,7 @@ type DataFlagProviderProps = {
 
 const DataFlagContext = createContext<DataFlagContextType>({
     dataFlag: initDataFlag,
-    setDataFlag: () => {},
+    updateDataFlag: () => {},
 })
 
 export const DataFlagProvider: React.FC<DataFlagProviderProps> = ({
@@ -22,8 +22,15 @@ export const DataFlagProvider: React.FC<DataFlagProviderProps> = ({
 }) => {
     const [dataFlag, setDataFlag] = useState(initDataFlag)
 
+    const updateDataFlag = (key: string, value: boolean) => {
+        setDataFlag({
+            ...dataFlag,
+            [key]: value,
+        })
+    }
+
     return (
-        <DataFlagContext.Provider value={{ dataFlag, setDataFlag }}>
+        <DataFlagContext.Provider value={{ dataFlag, updateDataFlag }}>
             {children}
         </DataFlagContext.Provider>
     )

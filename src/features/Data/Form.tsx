@@ -15,10 +15,15 @@ import { DataFlagProvider } from '@/features/Data/context/DataFlagContext'
 export default function Form() {
     const [openModal, setOpenModal] = useState<boolean>(false)
 
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        setOpenModal(true)
+    }
+
     return (
         <DataProvider>
             <DataFlagProvider>
-                <form id="form">
+                <form id="form" onSubmit={handleSubmit}>
                     <div className="space-y-12">
                         <Equipment />
                         <Liquid />
@@ -32,15 +37,10 @@ export default function Form() {
                         <ButtonTransparent type="reset">
                             Cancel
                         </ButtonTransparent>
-                        <ButtonPrimary
-                            onClick={() => setOpenModal(true)}
-                            type="button"
-                        >
-                            Save
-                        </ButtonPrimary>
+                        <ButtonPrimary type="submit">Save</ButtonPrimary>
                     </div>
-                    <Modal isOpen={openModal} setIsOpen={setOpenModal} />
                 </form>
+                <Modal isOpen={openModal} setIsOpen={setOpenModal} />
             </DataFlagProvider>
         </DataProvider>
     )
