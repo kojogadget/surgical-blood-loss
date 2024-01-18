@@ -7,14 +7,7 @@ import Label from '@/components/Form/Label'
 import Counter from '@/features/Data/components/Form/Counter'
 
 export default function Other() {
-    const { data, setData } = useDataContext()
-
-    const updateData = (key: string, value: number) => {
-        setData({
-            ...data,
-            [key]: value,
-        })
-    }
+    const { updateData } = useDataContext()
 
     return (
         <FormSection

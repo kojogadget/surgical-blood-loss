@@ -9,34 +9,21 @@ import Other from '@/features/Data/components/Other'
 import Estimate from '@/features/Data/components/Estimate'
 import Weight from '@/features/Data/components/Weight'
 import Modal from '@/features/Modal/Modal'
-import {
-    DataProvider,
-    useDataContext,
-} from '@/features/Data/context/DataContext'
+import { DataProvider } from '@/features/Data/context/DataContext'
 import { DataFlagProvider } from '@/features/Data/context/DataFlagContext'
-import { calcBloodLoss } from '@/utils/calcBloodLoss'
 
 export default function Form() {
-    const { data, setData } = useDataContext()
     const [openModal, setOpenModal] = useState<boolean>(false)
 
-    const updateData = (key: string, value: number) => {
-        setData({
-            ...data,
-            [key]: value,
-        })
-    }
-
-    const handleSave = () => {
-        const bloodLoss = calcBloodLoss(data)
-        updateData('bloodLoss', bloodLoss)
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
         setOpenModal(true)
     }
 
     return (
         <DataProvider>
             <DataFlagProvider>
-                <form id="form">
+                <form id="form" onSubmit={handleSubmit}>
                     <div className="space-y-12">
                         <Equipment />
                         <Liquid />
@@ -50,12 +37,10 @@ export default function Form() {
                         <ButtonTransparent type="reset">
                             Cancel
                         </ButtonTransparent>
-                        <ButtonPrimary onClick={handleSave} type="button">
-                            Save
-                        </ButtonPrimary>
+                        <ButtonPrimary type="submit">Save</ButtonPrimary>
                     </div>
-                    <Modal isOpen={openModal} setIsOpen={setOpenModal} />
                 </form>
+                <Modal isOpen={openModal} setIsOpen={setOpenModal} />
             </DataFlagProvider>
         </DataProvider>
     )
