@@ -16,22 +16,8 @@ export default function Counter({
     name: string
     label: string
 }) {
-    const { data, setData } = useDataContext()
-    const { dataFlag, setDataFlag } = useDataFlagContext()
-
-    const updateData = (key: string, value: number) => {
-        setData({
-            ...data,
-            [key]: value,
-        })
-    }
-
-    const updateDataFlag = (key: string, value: boolean) => {
-        setDataFlag({
-            ...dataFlag,
-            [key]: value,
-        })
-    }
+    const { data, updateData } = useDataContext()
+    const { dataFlag, updateDataFlag } = useDataFlagContext()
 
     const handleIncrement = () => {
         if (!dataFlag[keyFlag]) updateDataFlag(keyFlag, true)

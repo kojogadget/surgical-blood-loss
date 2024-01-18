@@ -7,22 +7,8 @@ import { useDataContext } from '@/features/Data/context/DataContext'
 import { useDataFlagContext } from '@/features/Data/context/DataFlagContext'
 
 export default function Liquid() {
-    const { data, setData } = useDataContext()
-    const { dataFlag, setDataFlag } = useDataFlagContext()
-
-    const updateData = (key: string, value: number) => {
-        setData({
-            ...data,
-            [key]: value,
-        })
-    }
-
-    const updateDataFlag = (key: string, value: boolean) => {
-        setDataFlag({
-            ...dataFlag,
-            [key]: value,
-        })
-    }
+    const { updateData } = useDataContext()
+    const { dataFlag, updateDataFlag } = useDataFlagContext()
 
     const handleWater = () => {
         updateDataFlag('waterEnabled', !dataFlag.waterEnabled)
