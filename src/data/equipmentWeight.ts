@@ -6,6 +6,6 @@ export const equipmentWeight: equipmentWeightTypes = {
     compressOrange: 13 * 5,
     tupferBlue: 5,
     tupferOrange: 2, // 1.5
-    cover: 20,
+    cover: 36,
     absorbingMat: 30,
 }

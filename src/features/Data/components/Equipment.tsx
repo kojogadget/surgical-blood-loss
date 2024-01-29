@@ -69,7 +69,7 @@ export default function Equipment() {
                             keyValue="covers"
                             keyFlag="coversEnabled"
                             name="covers"
-                            label="Duk"
+                            label="Duk 36g"
                         />
                     </CounterWrapper>
                 </Fieldset>
