@@ -152,21 +152,21 @@ export default function Content({
                                 </tr>
                                 <tr className="border-b border-gray-200">
                                     <td className="max-w-0 py-5 pl-4 pr-3 text-left text-sm sm:pl-0">
-                                        Visuelt estimat:
-                                    </td>
-                                    <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">
-                                        {data.estimate !== 0
-                                            ? data.estimate
-                                            : 'Ikke oppgitt'}
-                                    </td>
-                                </tr>
-                                <tr className="border-b border-gray-200">
-                                    <td className="max-w-0 py-5 pl-4 pr-3 text-left text-sm sm:pl-0">
                                         Vekt:
                                     </td>
                                     <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">
                                         {data.weight !== 0
                                             ? data.weight
+                                            : 'Ikke oppgitt'}
+                                    </td>
+                                </tr>
+                                <tr className="border-b border-gray-200">
+                                    <td className="max-w-0 py-5 pl-4 pr-3 text-left text-sm sm:pl-0">
+                                        Visuelt estimat:
+                                    </td>
+                                    <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">
+                                        {data.estimate !== 0
+                                            ? data.estimate
                                             : 'Ikke oppgitt'}
                                     </td>
                                 </tr>
