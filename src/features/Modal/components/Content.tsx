@@ -102,7 +102,7 @@ export default function Content({
                                 {dataFlag.natcloEnabled && (
                                     <tr className="border-b border-gray-200">
                                         <td className="max-w-0 py-5 pl-4 pr-3 text-left text-sm sm:pl-0">
-                                            Duk:
+                                            NaCl 0.9%:
                                         </td>
                                         <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">
                                             {data.natcloStart - data.natcloEnd}
@@ -112,7 +112,7 @@ export default function Content({
                                 {dataFlag.ringerAcetatEnabled && (
                                     <tr className="border-b border-gray-200">
                                         <td className="max-w-0 py-5 pl-4 pr-3 text-left text-sm sm:pl-0">
-                                            Duk:
+                                            Ringer Acetat:
                                         </td>
                                         <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">
                                             {data.ringerAcetatStart -
