@@ -18,8 +18,7 @@ export function calcBloodLoss(data: DataTypes): number {
     bloodLoss -= data.ringerAcetatStart - data.ringerAcetatEnd
 
     // Suction
-    bloodLoss -= data.suctionAmniotic
-    bloodLoss -= data.suctionTotal
+    bloodLoss += data.suctionTotal - data.suctionAmniotic
 
     // Other
     bloodLoss -= data.absorbingMat * equipmentWeight.absorbingMat
