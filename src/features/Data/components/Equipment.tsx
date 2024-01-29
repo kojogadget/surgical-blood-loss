@@ -26,7 +26,7 @@ export default function Equipment() {
                                 keyValue="compressBlue"
                                 keyFlag="compressBlueEnabled"
                                 name="compress-blue"
-                                label="Kompress (Blå)"
+                                label="Kompress 5x11g"
                             />
                         </CounterWrapper>
                         <CounterWrapper>
@@ -34,7 +34,7 @@ export default function Equipment() {
                                 keyValue="compressOrange"
                                 keyFlag="compressOrangeEnabled"
                                 name="compress-orange"
-                                label="Kompress (Oransje)"
+                                label="Kompress 5x13g"
                             />
                         </CounterWrapper>
                     </Fieldset>
@@ -48,7 +48,7 @@ export default function Equipment() {
                                 keyValue="tupferBlue"
                                 keyFlag="tupferBlueEnabled"
                                 name="tupfer-blue"
-                                label="Tupfer (Blå)"
+                                label="Tupfer 5x1g"
                             />
                         </CounterWrapper>
                         <CounterWrapper>
@@ -56,7 +56,7 @@ export default function Equipment() {
                                 keyValue="tupferOrange"
                                 keyFlag="tupferOrangeEnabled"
                                 name="tupfer-orange"
-                                label="Tupfer (Oransje)"
+                                label="Tupfer 5x0.3g"
                             />
                         </CounterWrapper>
                     </Fieldset>
