@@ -1,6 +1,8 @@
 import { Dialog } from '@headlessui/react'
 import { useDataContext } from '@/features/Data/context/DataContext'
 import { useDataFlagContext } from '@/features/Data/context/DataFlagContext'
+import { collection, addDoc } from 'firebase/firestore'
+import { db } from '@/config/firebase'
 
 export default function Content({
     setIsOpen,
@@ -11,6 +13,35 @@ export default function Content({
 }) {
     const { data } = useDataContext()
     const { dataFlag } = useDataFlagContext()
+
+    const handleSubmit = async () => {
+        try {
+            const docRef = await addDoc(collection(db, 'data-v1.0'), {
+                compressBoard: data.compressBoard,
+                compressBlue: data.compressBlue,
+                compressOrange: data.compressOrange,
+                tupferBlue: data.tupferBlue,
+                tupferOrange: data.tupferOrange,
+                covers: data.covers,
+                waterStart: data.waterStart,
+                waterEnd: data.waterEnd,
+                natcloStart: data.natcloStart,
+                natcloEnd: data.natcloEnd,
+                ringerAcetatStart: data.ringerAcetatStart,
+                ringerAcetatEnd: data.ringerAcetatEnd,
+                suctionAmniotic: data.suctionAmniotic,
+                suctionTotal: data.suctionTotal,
+                other: data.other,
+                weight: data.weight,
+                estimate: data.estimate,
+                bloodLoss: data.bloodLoss,
+            })
+            console.log('Document written with ID: ', docRef.id)
+            setIsOpen(false)
+        } catch (e) {
+            console.error('Error adding document: ', e)
+        }
+    }
 
     return (
         <>
@@ -175,9 +206,9 @@ export default function Content({
                                         Blodtap:
                                     </td>
                                     <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">
-                                        {data.bloodLoss !== 0
+                                        {data.bloodLoss >= 0
                                             ? data.bloodLoss
-                                            : 'Ikke oppgitt'}
+                                            : 'Ikke gyldig verdier...'}
                                     </td>
                                 </tr>
                             </tbody>
@@ -189,7 +220,7 @@ export default function Content({
                 <button
                     type="button"
                     className="inline-flex w-full justify-center rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primaryDark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primaryDark sm:col-start-2"
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => handleSubmit()}
                 >
                     Bekreft
                 </button>
