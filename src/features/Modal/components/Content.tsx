@@ -16,25 +16,9 @@ export default function Content({
 
     const handleSubmit = async () => {
         try {
-            const docRef = await addDoc(collection(db, 'data-v1.0'), {
-                compressBoard: data.compressBoard,
-                compressBlue: data.compressBlue,
-                compressOrange: data.compressOrange,
-                tupferBlue: data.tupferBlue,
-                tupferOrange: data.tupferOrange,
-                covers: data.covers,
-                waterStart: data.waterStart,
-                waterEnd: data.waterEnd,
-                natcloStart: data.natcloStart,
-                natcloEnd: data.natcloEnd,
-                ringerAcetatStart: data.ringerAcetatStart,
-                ringerAcetatEnd: data.ringerAcetatEnd,
-                suctionAmniotic: data.suctionAmniotic,
-                suctionTotal: data.suctionTotal,
-                other: data.other,
-                weight: data.weight,
-                estimate: data.estimate,
-                bloodLoss: data.bloodLoss,
+            const docRef = await addDoc(collection(db, 'data-v1.1'), {
+                createdAt: new Date(),
+                ...data,
             })
             console.log('Document written with ID: ', docRef.id)
             setIsOpen(false)
@@ -219,6 +203,7 @@ export default function Content({
             <div className="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
                 <button
                     type="button"
+                    disabled={data.bloodLoss < 0}
                     className="inline-flex w-full justify-center rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primaryDark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primaryDark sm:col-start-2"
                     onClick={() => handleSubmit()}
                 >
