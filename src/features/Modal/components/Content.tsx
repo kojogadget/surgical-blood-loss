@@ -193,6 +193,7 @@ export default function Content({
                                         {data.bloodLoss >= 0
                                             ? data.bloodLoss
                                             : 'Ikke gyldig verdier...'}
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
