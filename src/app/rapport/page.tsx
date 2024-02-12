@@ -34,9 +34,9 @@ export default function RapportPage() {
             <ul role="list" className="divide-y divide-gray-200">
                 {query.map((item: any, index: number) => (
                     <li key={index} className="py-4">
-                        <div className="flex items-center gap-x-16">
-                            <div className="mt-7 lg:mt-2">
-                                <p className="text-sm font-medium leading-6 text-gray-400">
+                        <div className="flex flex-wrap items-center gap-x-16 gap-y-2">
+                            <p className="mt-2 flex items-baseline justify-center gap-x-2 lg:justify-start">
+                                <span className="font-semibold tracking-tight text-white">
                                     {item
                                         .data()
                                         .createdAt.toDate()
@@ -46,8 +46,8 @@ export default function RapportPage() {
                                         .data()
                                         .createdAt.toDate()
                                         .toLocaleTimeString('nb-NO')}
-                                </p>
-                            </div>
+                                </span>
+                            </p>
                             <p className="mt-2 flex items-baseline justify-center gap-x-2 lg:justify-start">
                                 <span className="font-semibold tracking-tight text-white">
                                     Vekt: {item.data().weight}
