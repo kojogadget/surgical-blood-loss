@@ -1,6 +1,8 @@
 import { Dialog } from '@headlessui/react'
 import { useDataContext } from '@/features/Data/context/DataContext'
 import { useDataFlagContext } from '@/features/Data/context/DataFlagContext'
+import { collection, addDoc } from 'firebase/firestore'
+import { db } from '@/config/firebase'
 
 export default function Content({
     setIsOpen,
@@ -11,6 +13,19 @@ export default function Content({
 }) {
     const { data } = useDataContext()
     const { dataFlag } = useDataFlagContext()
+
+    const handleSubmit = async () => {
+        try {
+            const docRef = await addDoc(collection(db, 'data-v1.1'), {
+                createdAt: new Date(),
+                ...data,
+            })
+            console.log('Document written with ID: ', docRef.id)
+            setIsOpen(false)
+        } catch (e) {
+            console.error('Error adding document: ', e)
+        }
+    }
 
     return (
         <>
@@ -174,10 +189,10 @@ export default function Content({
                                     <td className="max-w-0 py-5 pl-4 pr-3 text-left text-sm sm:pl-2">
                                         Blodtap:
                                     </td>
-                                    <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-2">
+                                    <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">
                                         {data.bloodLoss >= 0
                                             ? data.bloodLoss
-                                            : 'UGYLDIG VERDIER'}
+                                            : 'Ikke gyldig verdier...'}
                                     </td>
                                 </tr>
                             </tbody>
@@ -188,8 +203,9 @@ export default function Content({
             <div className="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
                 <button
                     type="button"
+                    disabled={data.bloodLoss < 0}
                     className="inline-flex w-full justify-center rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primaryDark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primaryDark sm:col-start-2"
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => handleSubmit()}
                 >
                     Bekreft
                 </button>
