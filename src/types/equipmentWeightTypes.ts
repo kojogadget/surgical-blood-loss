@@ -1,9 +1,9 @@
 export type equipmentWeightTypes = {
     compressBoard: number
-    compressBlue: number
-    compressOrange: number
-    tupferBlue: number
-    tupferOrange: number
+    compressOne: number
+    compressTwo: number
+    tupferOne: number
+    tupferTwo: number
     cover: number
     absorbingMat: number
 }

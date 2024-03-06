@@ -2,10 +2,10 @@ import { DataFlagTypes } from '@/types'
 
 export const initDataFlag: DataFlagTypes = {
     compressBoardEnabled: false,
-    compressBlueEnabled: false,
-    compressOrangeEnabled: false,
-    tupferBlueEnabled: false,
-    tupferOrangeEnabled: false,
+    compressOneEnabled: false,
+    compressTwoEnabled: false,
+    tupferOneEnabled: false,
+    tupferTwoEnabled: false,
     coversEnabled: false,
     waterEnabled: false,
     natcloEnabled: false,
