@@ -2,10 +2,10 @@ import { equipmentWeightTypes } from '@/types'
 
 export const equipmentWeight: equipmentWeightTypes = {
     compressBoard: 60,
-    compressBlue: 11 * 5,
-    compressOrange: 13 * 5,
-    tupferBlue: 5,
-    tupferOrange: 2, // 1.5
-    cover: 36,
+    compressOne: 13 * 5,
+    compressTwo: 16 * 5,
+    tupferOne: 5,
+    tupferTwo: 2, // 1.5
+    cover: 29,
     absorbingMat: 30,
 }
