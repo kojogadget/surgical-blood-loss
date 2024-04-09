@@ -15,6 +15,7 @@ export default function RapportPage() {
         const querySnap = await getDocs(collection(db, 'data-v1.1'))
         let data: any = []
         querySnap.forEach((doc) => data.push(doc))
+        data.sort((a: any, b: any) => (a.data().createdAt - b.data().createdAt))
         setQuery(data)
     }
 
@@ -35,6 +36,11 @@ export default function RapportPage() {
                 {query.map((item: any, index: number) => (
                     <li key={index} className="py-4">
                         <div className="flex flex-wrap items-center gap-x-16 gap-y-2">
+                            <p className="mt-2 flex items-baseline justify-center gap-x-2 lg:justify-start">
+                                <span className="font-semibold tracking-tight text-white">
+                                    {index + 1}
+                                </span>
+                            </p>
                             <p className="mt-2 flex items-baseline justify-center gap-x-2 lg:justify-start">
                                 <span className="font-semibold tracking-tight text-white">
                                     {item
