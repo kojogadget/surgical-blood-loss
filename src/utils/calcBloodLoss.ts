@@ -6,10 +6,10 @@ export function calcBloodLoss(data: DataTypes): number {
 
     // Equipment
     bloodLoss -= data.compressBoard * equipmentWeight.compressBoard
-    bloodLoss -= data.compressBlue * equipmentWeight.compressBlue
-    bloodLoss -= data.compressOrange * equipmentWeight.compressOrange
-    bloodLoss -= data.tupferBlue * equipmentWeight.tupferBlue
-    bloodLoss -= data.tupferOrange * equipmentWeight.tupferOrange
+    bloodLoss -= data.compressOne * equipmentWeight.compressOne
+    bloodLoss -= data.compressTwo * equipmentWeight.compressTwo
+    bloodLoss -= data.tupferOne * equipmentWeight.tupferOne
+    bloodLoss -= data.tupferTwo * equipmentWeight.tupferTwo
     bloodLoss -= data.covers * equipmentWeight.cover
 
     // Liquids

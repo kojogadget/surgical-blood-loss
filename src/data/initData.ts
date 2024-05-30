@@ -2,10 +2,10 @@ import { DataTypes } from '@/types'
 
 export const initData: DataTypes = {
     compressBoard: 0,
-    compressBlue: 0,
-    compressOrange: 0,
-    tupferBlue: 0,
-    tupferOrange: 0,
+    compressOne: 0,
+    compressTwo: 0,
+    tupferOne: 0,
+    tupferTwo: 0,
     covers: 0,
     waterStart: 0,
     waterEnd: 0,

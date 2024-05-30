@@ -1,9 +1,9 @@
 export type DataTypes = {
     compressBoard: number
-    compressBlue: number
-    compressOrange: number
-    tupferBlue: number
-    tupferOrange: number
+    compressOne: number
+    compressTwo: number
+    tupferOne: number
+    tupferTwo: number
     covers: number
     waterStart: number
     waterEnd: number

@@ -23,18 +23,18 @@ export default function Equipment() {
                         </CounterWrapper>
                         <CounterWrapper>
                             <Counter
-                                keyValue="compressBlue"
-                                keyFlag="compressBlueEnabled"
-                                name="compress-blue"
-                                label="Kompress 5x11g"
+                                keyValue="compressOne"
+                                keyFlag="compressOneEnabled"
+                                name="compress-one"
+                                label="Kompress 5x11g (Brun)"
                             />
                         </CounterWrapper>
                         <CounterWrapper>
                             <Counter
-                                keyValue="compressOrange"
-                                keyFlag="compressOrangeEnabled"
-                                name="compress-orange"
-                                label="Kompress 5x13g"
+                                keyValue="compressTwo"
+                                keyFlag="compressTwoEnabled"
+                                name="compress-two"
+                                label="Kompress 5x13g (Brun)"
                             />
                         </CounterWrapper>
                     </Fieldset>
@@ -45,18 +45,18 @@ export default function Equipment() {
                     <Fieldset label="Tupfer">
                         <CounterWrapper>
                             <Counter
-                                keyValue="tupferBlue"
-                                keyFlag="tupferBlueEnabled"
-                                name="tupfer-blue"
-                                label="Tupfer 5x1g"
+                                keyValue="tupferOne"
+                                keyFlag="tupferOneEnabled"
+                                name="tupfer-one"
+                                label="Tupfer 5x1g (Blå)"
                             />
                         </CounterWrapper>
                         <CounterWrapper>
                             <Counter
-                                keyValue="tupferOrange"
-                                keyFlag="tupferOrangeEnabled"
-                                name="tupfer-orange"
-                                label="Tupfer 5x0.3g"
+                                keyValue="tupferTwo"
+                                keyFlag="tupferTwoEnabled"
+                                name="tupfer-two"
+                                label="Tupfer 5x0.3g (Oransje)"
                             />
                         </CounterWrapper>
                     </Fieldset>
@@ -69,7 +69,7 @@ export default function Equipment() {
                             keyValue="covers"
                             keyFlag="coversEnabled"
                             name="covers"
-                            label="Duk 36g"
+                            label="Duk 29g (Svart)"
                         />
                     </CounterWrapper>
                 </Fieldset>
