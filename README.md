@@ -2,11 +2,11 @@
 
 ## Introduction
 
-This project is used in a master's degree study at Western Norway University of Applied Sciences (HVL). The study explores whether the visual estimation of the patient's blood loss by the surgeon is good enough, or if it is possible to create a tool to make the process more accurate and time efficient.
+This project is used to collect data in a master's degree study at Western Norway University of Applied Sciences (HVL). The study explores whether the visual estimation of the patient's blood loss by the surgeon is good enough, or if it is possible to create a tool to make the process more accurate and time efficient.
 
 The site is hosted on [this site](https://kirurgiskblodtap.gunder.dev)
 
-Log in with:
+Log in with (user is deactivated while study is on going):
 
 -   E-mail testbruker@testing.test
 -   Password testpassord
