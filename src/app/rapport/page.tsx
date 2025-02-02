@@ -12,7 +12,7 @@ export default function RapportPage() {
     const [query, setQuery] = useState([])
 
     const getReport = async () => {
-        const querySnap = await getDocs(collection(db, 'data-v1.1'))
+        const querySnap = await getDocs(collection(db, 'showcase'))
         let data: any = []
         querySnap.forEach((doc) => data.push(doc))
         data.sort((a: any, b: any) => (a.data().createdAt - b.data().createdAt))

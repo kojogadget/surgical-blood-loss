@@ -19,7 +19,7 @@ export default function Content({
     const handleSubmit = async () => {
         try {
             // const docRef = await addDoc(collection(db, 'data-v1.1'), {
-            await addDoc(collection(db, 'data-v1.1'), {
+            await addDoc(collection(db, 'showcase'), {
                 createdAt: new Date(),
                 ...data,
             })
