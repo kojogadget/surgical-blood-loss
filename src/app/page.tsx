@@ -12,7 +12,7 @@ export default function Home() {
     const [numMeasurements, setNumMeasurements] = useState(0)
 
     const getNumMeasurements = async () => {
-        const querySnap = await getDocs(collection(db, 'data-v1.1'))
+        const querySnap = await getDocs(collection(db, 'showcase'))
         if (querySnap.empty) return
         setNumMeasurements(querySnap.size)
     }
