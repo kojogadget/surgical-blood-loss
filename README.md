@@ -6,7 +6,7 @@ This project is used to collect data in a master's degree study at Western Norwa
 
 The site is hosted on [this site](https://kirurgiskblodtap.gunder.dev)
 
-Log in with (user is deactivated while study is on going):
+Log in with:
 
 -   E-mail testbruker@testing.test
 -   Password testpassord

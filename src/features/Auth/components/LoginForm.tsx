@@ -10,8 +10,8 @@ import Label from '@/components/Form/Label'
 import Input from '@/components/Form/Input'
 
 export default function LoginForm() {
-    const [email, setEmail] = useState<string>('')
-    const [password, setPassword] = useState<string>('')
+    const [email, setEmail] = useState<string>('testbruker@testing.test')
+    const [password, setPassword] = useState<string>('testpassord')
     const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth)
 
     const router = useRouter()
